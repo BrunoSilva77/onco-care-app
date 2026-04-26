@@ -1,0 +1,81 @@
+.planos-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plano-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255,255,255,0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.plano-premium {
+  background: linear-gradient(135deg, rgba(138, 99, 229, 0.1), rgba(93, 195, 246, 0.1));
+  border-color: rgba(138, 99, 229, 0.3);
+}
+
+.plano-header h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 8px;
+}
+
+.plano-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: #8a63e5;
+}
+
+.plano-price span {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.plano-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plano-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.feature-icon {
+  color: #5dc3f6;
+}
+
+.saiba-mais-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: 8px;
+}
+
+.saiba-mais-btn:hover {
+  transform: translateY(-2px);
+}

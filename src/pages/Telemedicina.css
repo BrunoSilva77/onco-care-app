@@ -1,0 +1,78 @@
+.telemedicina-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doctor-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.doctor-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #e0cbf3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  font-size: 24px;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-info h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: #000;
+}
+
+.doctor-info p {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.status-online {
+  background: #d4f5d4;
+  color: #2e7d32;
+}
+
+.status-offline {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.call-btn {
+  background: #ff8ca3;
+  color: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 140, 163, 0.4);
+}

@@ -1,0 +1,29 @@
+.global-fab-oc-ia {
+  position: fixed;
+  bottom: 30px;
+  right: 24px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a580ff 0%, #5eb8ff 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(165, 128, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.global-fab-oc-ia:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(165, 128, 255, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.global-fab-oc-ia svg {
+  width: 36px;
+  height: 36px;
+  stroke-width: 1.5;
+}

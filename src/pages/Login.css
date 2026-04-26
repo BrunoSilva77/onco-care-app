@@ -1,0 +1,248 @@
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  position: relative;
+  background-image: url('/assets/images/login_bg.png');
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+}
+
+/* Semi-transparent overlay to make text readable */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.8) 100%);
+  z-index: 1;
+}
+
+.login-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.login-logo {
+  margin-bottom: 12px;
+  width: 150px;
+  height: 150px;
+  /* Corta a parte inferior onde está o texto */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-logo img {
+  width: 150px;
+  height: 150px;
+  /* Altura total para permitir o corte */
+  object-fit: cover;
+  object-position: top;
+  mix-blend-mode: multiply;
+  /* Faz o fundo branco desaparecer */
+}
+
+.brand-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #7b88db;
+  /* A soft blue/purple */
+  font-family: serif;
+  /* The image uses a nice serif for OncoCare */
+  margin-bottom: 4px;
+}
+
+.brand-subtitle {
+  font-size: 14px;
+  color: #6a6a75;
+  text-align: center;
+  font-weight: 500;
+}
+
+.welcome-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  color: #6a6a75;
+  font-weight: 500;
+}
+
+.form-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6a6a75;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 12px;
+}
+
+.glass-input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: var(--border-radius-md);
+  background: rgba(142, 169, 232, 0.3);
+  /* Soft translucent blue */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.glass-input::placeholder {
+  color: #4a4a52;
+  opacity: 0.8;
+}
+
+.glass-input:focus {
+  background: rgba(142, 169, 232, 0.4);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(142, 169, 232, 0.3);
+}
+
+.login-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 18px;
+  border-radius: var(--border-radius-md);
+  background: #9ab4eb;
+  /* Soft solid blue/purple */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(154, 180, 235, 0.4);
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(154, 180, 235, 0.6);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #6a6a75;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+.gov-button {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  background: #1351b4;
+  /* Azul Oficial Gov.br */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(19, 81, 180, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.gov-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(19, 81, 180, 0.5);
+  background: #0c3e90;
+}
+
+.gov-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: #6a6a75;
+}
+
+.register-link {
+  font-size: 14px;
+  color: #6a6a75;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #6a6a75;
+}

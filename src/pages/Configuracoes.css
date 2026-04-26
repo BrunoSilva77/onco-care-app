@@ -1,0 +1,148 @@
+.config-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.config-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 8px;
+}
+
+.config-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.config-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.config-item:last-child {
+  border-bottom: none;
+}
+
+.config-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.config-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(138, 99, 229, 0.1);
+  color: #8a63e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.config-text h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 2px;
+}
+
+.config-text p {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.config-item-right {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+}
+
+/* Custom Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 28px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: #8a63e5;
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+.logout-btn-full {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 75, 75, 0.1);
+  color: #ff4b4b;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid rgba(255, 75, 75, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn-full:hover {
+  background: #ff4b4b;
+  color: #fff;
+}
