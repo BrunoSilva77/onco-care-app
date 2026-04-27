@@ -1,7 +1,7 @@
 # 🩺 OncoCare — Plataforma de Saúde Oncológica
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/BrunoSilva77/onco-care-app/main/public/assets/images/logo.png" alt="OncoCare Logo" width="120" />
+  <img src="https://raw.githubusercontent.com/BrunoSilva77/onco-care-app/master/public/assets/images/logo.png" alt="OncoCare Logo" width="120" />
   <br /><br />
   <strong>Cuidado que acolhe, tecnologia que aproxima.</strong>
   <br /><br />
