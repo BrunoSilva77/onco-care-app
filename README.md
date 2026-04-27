@@ -1,198 +1,307 @@
-<div align="center">
+# OncoCare — Documentação Técnica
 
-<img src="public/assets/images/logo.png" alt="OncoCare" width="100" />
+Aplicação web mobile-first para suporte a pacientes oncológicos e profissionais de saúde, desenvolvida com **Vite + React + TypeScript**.
 
-# OncoCare
-### Cuidado que acolhe, tecnologia que aproxima.
+---
 
-*Uma plataforma digital completa para apoio a pacientes oncológicos e profissionais de saúde.*
+## Stack Tecnológica
 
-<br />
+| Tecnologia | Versão | Uso |
+|---|---|---|
+| Vite | latest | Build tool e dev server |
+| React | 18 | Framework de UI (SPA) |
+| TypeScript | 5 | Tipagem estática |
+| react-router-dom | 6 | Roteamento client-side |
+| lucide-react | latest | Ícones SVG |
+| CSS Modular | — | Estilização (um `.css` por página/componente) |
 
-[![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+Sem uso de Tailwind, Bootstrap ou bibliotecas de componentes. Todo o design foi implementado em CSS puro com glassmorphism, gradientes e animações via `@keyframes`.
 
+---
+
+## Estrutura de Pastas
+
+```
+onco-care-app/
+├── public/
+│   └── assets/
+│       └── images/
+│           ├── logo.png          # Logo circular do OncoCare
+│           ├── login_bg.png      # Fundo da tela de login
+│           └── gov_icon.png      # Ícone do gov.br
+├── src/
+│   ├── App.tsx                   # Definição de todas as rotas
+│   ├── main.tsx                  # Entry point
+│   ├── index.css                 # Reset e variáveis globais
+│   ├── components/
+│   │   ├── TopBar.tsx / .css     # Barra superior reutilizável (título + voltar)
+│   │   ├── DropdownMenu.tsx / .css  # Menu suspenso (Home → Configurações)
+│   │   └── FloatingAssistant.tsx / .css
+│   └── pages/
+│       ├── Login.tsx / .css
+│       ├── Cadastro.tsx / .css
+│       ├── Home.tsx / .css
+│       ├── Sintomas.tsx / .css
+│       ├── Telemedicina.tsx / .css
+│       ├── Exames.tsx / .css
+│       ├── Acompanhamento.tsx / .css
+│       ├── Biblioteca.tsx / .css
+│       ├── Unidades.tsx / .css
+│       ├── Farmacias.tsx / .css
+│       ├── Planos.tsx / .css
+│       ├── AssistenteIA.tsx / .css
+│       └── Configuracoes.tsx / .css
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+---
+
+## Rotas Registradas (`App.tsx`)
+
+```tsx
+<Routes>
+  <Route path="/"               element={<Navigate to="/login" />} />
+  <Route path="/login"          element={<Login />} />
+  <Route path="/cadastro"       element={<Cadastro />} />
+  <Route path="/home"           element={<Home />} />
+  <Route path="/sintomas"       element={<Sintomas />} />
+  <Route path="/telemedicina"   element={<Telemedicina />} />
+  <Route path="/exames"         element={<Exames />} />
+  <Route path="/acompanhamento" element={<Acompanhamento />} />
+  <Route path="/biblioteca"     element={<Biblioteca />} />
+  <Route path="/unidades"       element={<Unidades />} />
+  <Route path="/farmacias"      element={<Farmacias />} />
+  <Route path="/planos"         element={<Planos />} />
+  <Route path="/assistente"     element={<AssistenteIA />} />
+  <Route path="/configuracoes"  element={<Configuracoes />} />
+</Routes>
+```
+
+---
+
+## Implementações Técnicas por Módulo
+
+### Login (`/login`)
+
+- Logo circular com recorte CSS via `overflow: hidden` + `object-position: top` para eliminar área indesejada da imagem sem edição externa
+- `mix-blend-mode: multiply` aplicado na imagem para integração com o fundo
+- Botão **gov.br** com ícone local (`/assets/images/gov_icon.png`) — sem dependência de URL externa
+- Links "Esqueceu a senha?" e "Cadastre-se!" posicionados dentro do `<form>`, entre o botão "Entrar" e o divisor "OU"
+- Container com `min-height: 100vh` + `overflow-y: auto` para permitir scroll em telas menores
+
+---
+
+### Cadastro (`/cadastro`)
+
+Estado interno com 3 etapas controlado por `useState`:
+
+```tsx
+type Step = 'selecao' | 'paciente' | 'medico';
+const [step, setStep] = useState<Step>('selecao');
+```
+
+- **Etapa `selecao`**: dois cards clicáveis (Paciente / Médico) que alteram o `step`
+- **Etapa `paciente`**: campos CPF e Data de Nascimento
+- **Etapa `medico`**: campos CRM e Especialidade
+- Campos comuns (Nome, E-mail, Senha) presentes em ambos os formulários
+- Botão "Voltar" navega entre etapas antes de retornar ao `/login`
+
+---
+
+### Home — Menu Giratório (`/home`)
+
+Implementação mais complexa do projeto. Usa `useState<'home' | 'settings'>` para controlar qual modo está ativo.
+
+#### Estrutura HTML da roleta
+
+```tsx
+<div className="half-circle">                         {/* meia-lua visível */}
+  <div className={`inner-half-circle spinning-wheel ${activeMenu}`}>
+    {/* Círculo completo que gira */}
+    <div className="wheel-icon pos-home" onClick={() => setActiveMenu('home')}>
+      {/* ícone Casa */}
+    </div>
+    <div className="wheel-icon pos-settings" onClick={() => setActiveMenu('settings')}>
+      {/* ícone Engrenagem */}
+    </div>
+  </div>
 </div>
+```
+
+#### Mecânica de rotação (CSS)
+
+O círculo completo (280×280px) fica deslocado para a esquerda (`left: -80px`) de forma que apenas a metade direita é visível. A rotação move os ícones para a posição central:
+
+```css
+.spinning-wheel.home     { transform: rotate(0deg);   }
+.spinning-wheel.settings { transform: rotate(-45deg); }
+```
+
+Os ícones aplicam contra-rotação para ficarem sempre upright:
+
+```css
+.spinning-wheel.settings .pos-home,
+.spinning-wheel.settings .pos-settings {
+  transform: rotate(45deg);
+}
+```
+
+#### Posicionamento dos ícones na borda do círculo
+
+Os ícones são posicionados com `position: absolute` usando coordenadas calculadas a partir do centro do círculo (140, 140) e raio de 120px:
+
+```
+left = 140 + 120 * cos(ângulo°) - 24   (24 = metade da largura do ícone)
+top  = 140 + 120 * sin(ângulo°) - 24
+```
+
+- `pos-home` → ângulo 0° → `left: 206px; top: 116px`
+- `pos-settings` → ângulo 45° → `left: 174px; top: 194px`
+
+#### Animação de cascata dos botões
+
+Cada botão usa a classe `seq-N` que adiciona um `animation-delay` crescente:
+
+```css
+@keyframes slideInCascata {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.seq-1 { animation-delay: 0.1s; }
+.seq-2 { animation-delay: 0.2s; }
+/* ... até seq-5 */
+```
+
+#### Linhas pontilhadas
+
+Desenhadas via `::before` com `radial-gradient` e ângulos individuais calculados para cada botão apontar para o ícone central:
+
+```css
+.menu-item-wrapper.seq-1::before { width: 129px; transform: rotate(-55deg); }
+.menu-item-wrapper.seq-3::before { width: 74px;  transform: rotate(0deg);   }
+.menu-item-wrapper.seq-5::before { width: 129px; transform: rotate(55deg);  }
+```
+
+#### `pointer-events` para evitar bloqueio de cliques
+
+O container dos botões fica "por cima" da roleta, então:
+
+```css
+.menu-items-container { pointer-events: none; }  /* container invisível passa cliques */
+.menu-item-wrapper    { pointer-events: auto; }   /* restaura nos botões reais */
+.half-circle          { z-index: 50; }            /* garante que a roleta esteja na frente */
+```
 
 ---
 
-## 🎯 Sobre o Projeto
+### OC IA — Motor de Respostas (`/assistente`)
 
-O **OncoCare** nasceu da necessidade de aproximar pacientes em tratamento oncológico dos serviços de saúde e informações que precisam, de forma **acessível, segura e humana**.
+Sem API externa. Lógica local de matching por palavras-chave:
 
-A plataforma oferece:
-- Acesso rápido a serviços médicos e informações de tratamento
-- Comunicação facilitada com profissionais de saúde via telemedicina
-- Suporte 24h via assistente de inteligência artificial especializado em oncologia
-- Controle total do histórico e acompanhamento do tratamento
+```tsx
+const RESPOSTAS = [
+  { keywords: ['sintoma', 'dor', 'náusea', ...], response: '...' },
+  { keywords: ['quimio', 'quimioterapia'],        response: '...' },
+  // 13 categorias no total
+];
 
----
+function getResponse(text: string): string {
+  const lower = text.toLowerCase();
+  for (const item of RESPOSTAS) {
+    if (item.keywords.some(kw => lower.includes(kw))) {
+      return item.response;
+    }
+  }
+  return RESPOSTA_PADRAO;
+}
+```
 
-## 🔐 Autenticação
+Delay artificial de 1.2s com `setTimeout` simula tempo de processamento. `isTyping` state controla o indicador de digitação (3 `<span>` animados via `@keyframes blink`).
 
-O fluxo de acesso foi projetado para ser **seguro e inclusivo**, integrando a identidade digital oficial do Governo Federal.
+Auto-scroll implementado com `useRef` + `useEffect`:
 
-### Login
-- Autenticação por e-mail e senha
-- **Login com gov.br** — acesso imediato com sua conta do Governo Federal
-
-### Cadastro em 2 Etapas
-O usuário escolhe seu perfil e preenche informações específicas:
-
-**Paciente** → Nome · CPF · Data de Nascimento · E-mail · Senha  
-**Médico** → Nome · CRM · Especialidade · E-mail · Senha
-
-Ambos os perfis também suportam o **Cadastro com gov.br**.
-
----
-
-## 🏠 Home — Menu Giratório Interativo
-
-A tela principal do OncoCare é o grande diferencial de experiência do usuário.
-
-### Como funciona?
-
-Uma **roleta animada** é fixada na lateral esquerda da tela, com dois ícones posicionados na borda do círculo: 🏠 **Casa** e ⚙️ **Configurações**.
-
-Ao clicar em um ícone, o círculo **gira suavemente** até o ícone selecionado ficar centralizado. Em seguida, os botões do modo selecionado **surgem em cascata** — cada um deslizando e ganhando opacidade um após o outro, conectados ao ícone central por linhas pontilhadas.
+```tsx
+const messagesEndRef = useRef<HTMLDivElement>(null);
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+}, [chat, isTyping]);
+```
 
 ---
 
-### Modo 🏠 Home — Navegação Principal
+### Configurações (`/configuracoes`)
 
-| Botão | Destino | Descrição |
-|---|---|---|
-| **SINTOMAS** | `/sintomas` | Registro diário de sintomas |
-| **TELEMEDICINA** | `/telemedicina` | Consulta online com médico |
-| **EXAMES / CONSULTAS** | `/exames` | Histórico e agendamentos |
-| **ACOMPANHAMENTO** | `/acompanhamento` | Evolução do tratamento |
-| **BIBLIOTECA** | `/biblioteca` | Conteúdo educativo oncológico |
+Toggles implementados com `<input type="checkbox">` customizado via CSS (sem biblioteca), usando o padrão:
+
+```html
+<label class="toggle-switch">
+  <input type="checkbox" class="toggle-input" checked={state} onChange={...} />
+  <span class="toggle-slider"></span>
+</label>
+```
+
+O estado de cada toggle é gerenciado por `useState` individual:
+
+```tsx
+const [notificacoesApp, setNotificacoesApp] = useState(true);
+const [biometria, setBiometria]             = useState(true);
+const [modoEscuro, setModoEscuro]           = useState(false);
+```
 
 ---
 
-### Modo ⚙️ Configurações — Atalhos Rápidos
+## Design System
 
-| Botão | Descrição |
+Todas as páginas seguem o mesmo padrão visual:
+
+| Elemento | Especificação |
 |---|---|
-| **MEU PERFIL** | Editar foto, nome e senha |
-| **NOTIFICAÇÕES** | Alertas por app e SMS |
-| **APARÊNCIA** | Ativar/desativar Modo Escuro |
-| **SEGURANÇA** | Biometria (Face ID / Digital) |
-| **SAIR DA CONTA** | Encerrar sessão |
+| Fundo da Home | `linear-gradient(180deg, #fcebfa, #e0cbf3, #c8def9)` |
+| Cards/painéis | `background: rgba(255,255,255,0.85)` + `border-radius: 20px` |
+| Botão primário (Entrar) | Gradiente `#a580ff → #5eb8ff` |
+| Botão gov.br | `#1351b4` (cor oficial do Governo Federal) |
+| Botão logout | `rgba(255, 75, 75, 0.1)` com borda vermelha |
+| Pílulas Home | `rgba(220, 215, 250, 0.9)` (roxo pastel) |
+| Pílulas Config | `rgba(210, 230, 255, 0.9)` (azul pastel) |
+| Cor roxa principal | `#8a63e5` |
+| Fonte | Sistema (sem Google Fonts externo) |
 
 ---
 
-## 🗺️ Mapa de Telas
-
-| Rota | Tela |
-|---|---|
-| `/login` | Acesso com e-mail ou gov.br |
-| `/cadastro` | Cadastro de Paciente ou Médico |
-| `/home` | Dashboard com menu giratório |
-| `/sintomas` | Registro de sintomas diários |
-| `/telemedicina` | Teleconsultas médicas |
-| `/exames` | Exames e consultas agendadas |
-| `/acompanhamento` | Monitoramento do tratamento |
-| `/biblioteca` | Artigos e informações de saúde |
-| `/unidades` | Hospitais especializados próximos |
-| `/farmacias` | Farmácias parceiras com desconto |
-| `/planos` | Planos de assinatura OncoCare |
-| `/assistente` | Chat com o OC IA |
-| `/configuracoes` | Preferências e conta |
-
----
-
-## 🤖 OC IA — Assistente de Oncologia
-
-O **OC IA** é um assistente de chat integrado, treinado para responder dúvidas frequentes de pacientes oncológicos em **13 categorias**:
-
-> Quimioterapia · Radioterapia · Sintomas · Medicamentos  
-> Alimentação · Exames · Consultas · Emocional  
-> Planos · Farmácias · Hospitais · Saudações · Agradecimentos
-
-### Recursos do Chat
-- 💡 **Chips de sugestão rápida** para iniciar uma conversa com um clique
-- ⏳ **Indicador de digitação** — 3 bolinhas pulsantes enquanto a IA "pensa"
-- ✨ Ícone de brilho em cada resposta do assistente
-- 📜 Scroll automático para a última mensagem
-
----
-
-## ⚙️ Configurações
-
-A tela de configurações é organizada em seções com **toggles interativos** e ações diretas:
-
-- 👤 **Minha Conta** — Editar perfil e alterar senha
-- 🔔 **Notificações** — Liga/desliga alertas por App e SMS
-- 🌙 **Aparência** — Alternância entre Modo Escuro e Claro
-- 🔒 **Segurança** — Habilitar autenticação biométrica
-- ℹ️ **Sobre** — Termos de uso e Central de ajuda
-- 🚪 **Sair da Conta** — Botão destacado em vermelho
-
----
-
-## 🎨 Design
-
-O OncoCare adota um design **premium e acolhedor**, pensado para usuários que precisam de clareza e conforto visual:
-
-- **Glassmorphism** — painéis translúcidos com blur e bordas suaves
-- **Paleta pastel** — gradientes em roxo, azul e rosa que transmitem calma
-- **Animações fluidas** — 100% CSS puro (`cubic-bezier`, `@keyframes`)
-- **Mobile-first** — desenvolvido para telas de smartphone
-- **Acessibilidade** — fontes legíveis, alto contraste e elementos bem espaçados
-
----
-
-## 🛠️ Tecnologias
-
-| Tecnologia | Versão | Função |
-|---|---|---|
-| React | 18 | Framework de interface |
-| TypeScript | 5 | Tipagem e segurança |
-| Vite | latest | Build e dev server |
-| react-router-dom | 6 | Roteamento SPA |
-| lucide-react | latest | Biblioteca de ícones |
-| CSS Modular | — | Estilização por componente |
-
----
-
-## 🚀 Como Executar
+## Scripts Disponíveis
 
 ```bash
-# Clone o repositório
-git clone https://github.com/BrunoSilva77/onco-care-app.git
+npm run dev      # Inicia servidor de desenvolvimento (porta 5173)
+npm run build    # Gera bundle otimizado em /dist
+npm run preview  # Visualiza o build de produção localmente
+```
 
-# Instale as dependências
+---
+
+## Como Executar
+
+```bash
+git clone https://github.com/BrunoSilva77/onco-care-app.git
 cd onco-care-app
 npm install
-
-# Inicie o servidor local
 npm run dev
 ```
 
-Acesse em **http://localhost:5173**
+Acesse: `http://localhost:5173`
 
 ---
 
-## 🔮 Roadmap
+## Pendências e Próximos Passos
 
-- [ ] Integração real com autenticação gov.br (OAuth 2.0)
-- [ ] OC IA conectado a uma API de LLM (Google Gemini / GPT)
-- [ ] Backend com Node.js + PostgreSQL
-- [ ] Notificações push para medicamentos e consultas
-- [ ] Videochamada real na Telemedicina
-- [ ] Dark Mode aplicado globalmente
-- [ ] Publicação como PWA e nas lojas (Play Store / App Store)
-
----
-
-<div align="center">
-
-Desenvolvido por **Bruno Silva**
-
-[![GitHub](https://img.shields.io/badge/GitHub-BrunoSilva77-181717?style=flat-square&logo=github)](https://github.com/BrunoSilva77)
-
-<sub>Feito com 💜 para apoiar pacientes e profissionais de oncologia.</sub>
-
-</div>
+| Item | Descrição |
+|---|---|
+| Autenticação real | Integrar gov.br via OAuth 2.0 |
+| Backend | API REST com Node.js + PostgreSQL |
+| OC IA com LLM | Conectar a API do Google Gemini ou equivalente |
+| Dark Mode global | Aplicar tema escuro via CSS custom properties |
+| Notificações push | Lembretes de medicamentos via service worker |
+| Telemedicina real | Integração com SDK de videochamada |
+| PWA | Manifest + service worker para instalação no celular |
