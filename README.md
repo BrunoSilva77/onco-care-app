@@ -305,3 +305,23 @@ Acesse: `http://localhost:5173`
 | Notificações push | Lembretes de medicamentos via service worker |
 | Telemedicina real | Integração com SDK de videochamada |
 | PWA | Manifest + service worker para instalação no celular |
+
+---
+
+## CI/CD — Deploy Automático
+
+O projeto usa **GitHub Actions** para deploy automático no InfinityFree via FTP.
+
+Todo `git push` na branch `master` aciona o workflow `.github/workflows/deploy.yml` que:
+
+1. Faz o build de produção com `npm run build`
+2. Gera o `.htaccess` para o React Router funcionar como SPA
+3. Sobe o conteúdo da pasta `/dist` para o servidor via FTP
+
+**Secrets necessários no GitHub:**
+
+| Secret | Descrição |
+|---|---|
+| `FTP_SERVER` | Host FTP do InfinityFree (ex: `ftpupload.net`) |
+| `FTP_USERNAME` | Usuário FTP |
+| `FTP_PASSWORD` | Senha FTP |
