@@ -1,221 +1,198 @@
-# 🩺 OncoCare — Plataforma de Saúde Oncológica
-
 <div align="center">
-  <img src="public/assets/images/logo.png" alt="OncoCare Logo" width="120" />
-  <br /><br />
-  <strong>Cuidado que acolhe, tecnologia que aproxima.</strong>
-  <br /><br />
 
-  ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
-  ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)
-  ![Vite](https://img.shields.io/badge/Vite-latest-646CFF?style=flat-square&logo=vite)
-  ![License](https://img.shields.io/badge/Licença-MIT-green?style=flat-square)
+<img src="public/assets/images/logo.png" alt="OncoCare" width="100" />
+
+# OncoCare
+### Cuidado que acolhe, tecnologia que aproxima.
+
+*Uma plataforma digital completa para apoio a pacientes oncológicos e profissionais de saúde.*
+
+<br />
+
+[![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+
 </div>
 
 ---
 
-## 📌 Sobre o Projeto
+## 🎯 Sobre o Projeto
 
-O **OncoCare** é uma plataforma mobile-first de saúde oncológica desenvolvida para conectar pacientes e médicos durante o tratamento do câncer. O app oferece acesso rápido a funcionalidades essenciais como registro de sintomas, telemedicina, acompanhamento de tratamento e suporte via inteligência artificial.
+O **OncoCare** nasceu da necessidade de aproximar pacientes em tratamento oncológico dos serviços de saúde e informações que precisam, de forma **acessível, segura e humana**.
 
----
-
-## ✨ Funcionalidades
-
-### 🔐 Autenticação
-- **Login** com e-mail/senha
-- **Login com gov.br** (integração com a identidade digital do Governo Federal)
-- **Cadastro em 2 etapas** com seleção de perfil:
-  - **Paciente**: Nome, CPF, Data de Nascimento, E-mail e Senha
-  - **Médico**: Nome, CRM, Especialidade, E-mail e Senha
-- Opção de **Cadastro com gov.br** para ambos os perfis
+A plataforma oferece:
+- Acesso rápido a serviços médicos e informações de tratamento
+- Comunicação facilitada com profissionais de saúde via telemedicina
+- Suporte 24h via assistente de inteligência artificial especializado em oncologia
+- Controle total do histórico e acompanhamento do tratamento
 
 ---
 
-### 🏠 Home — Menu Giratório Interativo
+## 🔐 Autenticação
 
-O principal diferencial de UI do OncoCare. A tela inicial conta com uma **roleta animada** fixada à esquerda, com dois modos de navegação:
+O fluxo de acesso foi projetado para ser **seguro e inclusivo**, integrando a identidade digital oficial do Governo Federal.
 
-#### Modo 🏠 Home
-Ao selecionar o ícone de Casa, o círculo gira suavemente e os 5 botões surgem em **animação cascata** com linhas pontilhadas conectadas ao ícone central:
+### Login
+- Autenticação por e-mail e senha
+- **Login com gov.br** — acesso imediato com sua conta do Governo Federal
 
-| # | Tela | Descrição |
-|---|------|-----------|
-| 1 | **Sintomas** | Registre sintomas diários |
-| 2 | **Telemedicina** | Fale com o médico online |
-| 3 | **Exames / Consultas** | Veja seus compromissos |
-| 4 | **Acompanhamento** | Histórico de tratamento |
-| 5 | **Biblioteca** | Conteúdo educativo sobre oncologia |
+### Cadastro em 2 Etapas
+O usuário escolhe seu perfil e preenche informações específicas:
 
-#### Modo ⚙️ Configurações
-Ao girar a roleta para Configurações, surgem outros 5 botões rápidos:
+**Paciente** → Nome · CPF · Data de Nascimento · E-mail · Senha  
+**Médico** → Nome · CRM · Especialidade · E-mail · Senha
 
-| # | Ação |
-|---|------|
-| 1 | Meu Perfil |
-| 2 | Notificações |
-| 3 | Aparência (Modo Escuro) |
-| 4 | Segurança (Biometria) |
-| 5 | Sair da Conta |
+Ambos os perfis também suportam o **Cadastro com gov.br**.
 
 ---
 
-### 🤖 OC IA — Assistente de Oncologia
+## 🏠 Home — Menu Giratório Interativo
 
-Assistente de chat com motor de respostas baseado em **palavras-chave**, cobrindo **13 categorias** de dúvidas médicas:
+A tela principal do OncoCare é o grande diferencial de experiência do usuário.
 
-- 💊 Quimioterapia e Radioterapia
-- 🤒 Sintomas e Efeitos Colaterais
-- 🍽️ Alimentação e Nutrição
-- 📋 Exames e Resultados
-- 🗓️ Consultas e Telemedicina
-- 😟 Suporte Emocional e Ansiedade
-- 💊 Medicamentos e Horários
-- 🏥 Unidades Hospitalares
-- 💊 Farmácias Parceiras
-- 🛡️ Planos de Saúde
-- 👋 Saudações e Agradecimentos
+### Como funciona?
 
-**Diferenciais do chat:**
-- ⏳ Indicador de digitação animado (3 bolinhas pulsantes)
-- 💡 Chips de sugestão rápida clicáveis
-- ✨ Ícone de brilho em cada resposta da IA
-- 📜 Auto-scroll para a última mensagem
+Uma **roleta animada** é fixada na lateral esquerda da tela, com dois ícones posicionados na borda do círculo: 🏠 **Casa** e ⚙️ **Configurações**.
+
+Ao clicar em um ícone, o círculo **gira suavemente** até o ícone selecionado ficar centralizado. Em seguida, os botões do modo selecionado **surgem em cascata** — cada um deslizando e ganhando opacidade um após o outro, conectados ao ícone central por linhas pontilhadas.
 
 ---
 
-### 📋 Páginas do Aplicativo
+### Modo 🏠 Home — Navegação Principal
 
-| Rota | Página | Descrição |
-|------|--------|-----------|
-| `/login` | Login | Acesso com e-mail ou gov.br |
-| `/cadastro` | Cadastro | Registro de Paciente ou Médico |
-| `/home` | Home | Dashboard principal com menu giratório |
-| `/sintomas` | Sintomas | Registro de sintomas diários |
-| `/telemedicina` | Telemedicina | Videoconsultas médicas |
-| `/exames` | Exames | Histórico de exames e consultas |
-| `/acompanhamento` | Acompanhamento | Monitoramento do tratamento |
-| `/biblioteca` | Biblioteca | Conteúdo educativo |
-| `/unidades` | Unidades Hospitalares | Hospitais especializados próximos |
-| `/farmacias` | Farmácias Parceiras | Descontos em medicamentos |
-| `/planos` | Planos OncoCare | Planos de assinatura |
-| `/assistente` | OC IA | Assistente de inteligência artificial |
-| `/configuracoes` | Configurações | Preferências e conta do usuário |
+| Botão | Destino | Descrição |
+|---|---|---|
+| **SINTOMAS** | `/sintomas` | Registro diário de sintomas |
+| **TELEMEDICINA** | `/telemedicina` | Consulta online com médico |
+| **EXAMES / CONSULTAS** | `/exames` | Histórico e agendamentos |
+| **ACOMPANHAMENTO** | `/acompanhamento` | Evolução do tratamento |
+| **BIBLIOTECA** | `/biblioteca` | Conteúdo educativo oncológico |
 
 ---
 
-### ⚙️ Configurações
+### Modo ⚙️ Configurações — Atalhos Rápidos
 
-Organizada em seções com **toggles interativos**:
-- 👤 **Minha Conta**: Editar Perfil e Alterar Senha
-- 🔔 **Notificações**: Alertas pelo App e SMS
-- 🌙 **Aparência**: Modo Escuro / Claro
-- 🔒 **Segurança**: Acesso por Biometria (Face ID / Digital)
-- ℹ️ **Sobre**: Termos de Uso e Central de Ajuda
-- 🚪 **Sair da Conta**: Logout
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-| Tecnologia | Uso |
-|------------|-----|
-| **React 18** | Framework principal (SPA) |
-| **TypeScript** | Tipagem estática |
-| **Vite** | Build tool e dev server |
-| **react-router-dom** | Roteamento entre páginas |
-| **lucide-react** | Biblioteca de ícones |
-| **CSS Modular** | Estilização por componente |
+| Botão | Descrição |
+|---|---|
+| **MEU PERFIL** | Editar foto, nome e senha |
+| **NOTIFICAÇÕES** | Alertas por app e SMS |
+| **APARÊNCIA** | Ativar/desativar Modo Escuro |
+| **SEGURANÇA** | Biometria (Face ID / Digital) |
+| **SAIR DA CONTA** | Encerrar sessão |
 
 ---
 
-## 🎨 Design System
+## 🗺️ Mapa de Telas
 
-- **Estética**: Glassmorphism com fundos translúcidos e blur
-- **Paleta**: Gradientes suaves em roxo, azul e rosa pastel
-- **Tipografia**: Moderna e limpa para legibilidade em telas pequenas
-- **Animações**: CSS puro — `cubic-bezier`, `@keyframes`, `transition`
-- **Mobile-first**: Layout otimizado para smartphones
+| Rota | Tela |
+|---|---|
+| `/login` | Acesso com e-mail ou gov.br |
+| `/cadastro` | Cadastro de Paciente ou Médico |
+| `/home` | Dashboard com menu giratório |
+| `/sintomas` | Registro de sintomas diários |
+| `/telemedicina` | Teleconsultas médicas |
+| `/exames` | Exames e consultas agendadas |
+| `/acompanhamento` | Monitoramento do tratamento |
+| `/biblioteca` | Artigos e informações de saúde |
+| `/unidades` | Hospitais especializados próximos |
+| `/farmacias` | Farmácias parceiras com desconto |
+| `/planos` | Planos de assinatura OncoCare |
+| `/assistente` | Chat com o OC IA |
+| `/configuracoes` | Preferências e conta |
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🤖 OC IA — Assistente de Oncologia
+
+O **OC IA** é um assistente de chat integrado, treinado para responder dúvidas frequentes de pacientes oncológicos em **13 categorias**:
+
+> Quimioterapia · Radioterapia · Sintomas · Medicamentos  
+> Alimentação · Exames · Consultas · Emocional  
+> Planos · Farmácias · Hospitais · Saudações · Agradecimentos
+
+### Recursos do Chat
+- 💡 **Chips de sugestão rápida** para iniciar uma conversa com um clique
+- ⏳ **Indicador de digitação** — 3 bolinhas pulsantes enquanto a IA "pensa"
+- ✨ Ícone de brilho em cada resposta do assistente
+- 📜 Scroll automático para a última mensagem
+
+---
+
+## ⚙️ Configurações
+
+A tela de configurações é organizada em seções com **toggles interativos** e ações diretas:
+
+- 👤 **Minha Conta** — Editar perfil e alterar senha
+- 🔔 **Notificações** — Liga/desliga alertas por App e SMS
+- 🌙 **Aparência** — Alternância entre Modo Escuro e Claro
+- 🔒 **Segurança** — Habilitar autenticação biométrica
+- ℹ️ **Sobre** — Termos de uso e Central de ajuda
+- 🚪 **Sair da Conta** — Botão destacado em vermelho
+
+---
+
+## 🎨 Design
+
+O OncoCare adota um design **premium e acolhedor**, pensado para usuários que precisam de clareza e conforto visual:
+
+- **Glassmorphism** — painéis translúcidos com blur e bordas suaves
+- **Paleta pastel** — gradientes em roxo, azul e rosa que transmitem calma
+- **Animações fluidas** — 100% CSS puro (`cubic-bezier`, `@keyframes`)
+- **Mobile-first** — desenvolvido para telas de smartphone
+- **Acessibilidade** — fontes legíveis, alto contraste e elementos bem espaçados
+
+---
+
+## 🛠️ Tecnologias
+
+| Tecnologia | Versão | Função |
+|---|---|---|
+| React | 18 | Framework de interface |
+| TypeScript | 5 | Tipagem e segurança |
+| Vite | latest | Build e dev server |
+| react-router-dom | 6 | Roteamento SPA |
+| lucide-react | latest | Biblioteca de ícones |
+| CSS Modular | — | Estilização por componente |
+
+---
+
+## 🚀 Como Executar
 
 ```bash
-# 1. Clone o repositório
+# Clone o repositório
 git clone https://github.com/BrunoSilva77/onco-care-app.git
 
-# 2. Acesse a pasta do projeto
+# Instale as dependências
 cd onco-care-app
-
-# 3. Instale as dependências
 npm install
 
-# 4. Inicie o servidor de desenvolvimento
+# Inicie o servidor local
 npm run dev
 ```
 
-Acesse em: `http://localhost:5173`
+Acesse em **http://localhost:5173**
 
 ---
 
-## 📦 Build para Produção
+## 🔮 Roadmap
 
-```bash
-npm run build
-```
-
-Os arquivos otimizados serão gerados na pasta `dist/`.
-
----
-
-## 📁 Estrutura do Projeto
-
-```
-onco-care-app/
-├── public/
-│   └── assets/
-│       └── images/          # Logo, fundo e ícones
-├── src/
-│   ├── components/          # Componentes reutilizáveis
-│   │   ├── TopBar.tsx       # Barra de topo com voltar
-│   │   ├── DropdownMenu.tsx # Menu suspenso (secundário)
-│   │   └── FloatingAssistant.tsx
-│   ├── pages/               # Uma pasta por tela
-│   │   ├── Login.tsx / .css
-│   │   ├── Cadastro.tsx / .css
-│   │   ├── Home.tsx / .css
-│   │   ├── AssistenteIA.tsx / .css
-│   │   ├── Configuracoes.tsx / .css
-│   │   └── ... (demais páginas)
-│   ├── App.tsx              # Definição de todas as rotas
-│   └── main.tsx             # Ponto de entrada
-├── package.json
-└── vite.config.ts
-```
+- [ ] Integração real com autenticação gov.br (OAuth 2.0)
+- [ ] OC IA conectado a uma API de LLM (Google Gemini / GPT)
+- [ ] Backend com Node.js + PostgreSQL
+- [ ] Notificações push para medicamentos e consultas
+- [ ] Videochamada real na Telemedicina
+- [ ] Dark Mode aplicado globalmente
+- [ ] Publicação como PWA e nas lojas (Play Store / App Store)
 
 ---
 
-## 🔮 Próximos Passos
-
-- [ ] Integração com API de autenticação real (gov.br OAuth)
-- [ ] Integração do OC IA com API de LLM (ex: Google Gemini)
-- [ ] Persistência de dados com backend (Node.js + PostgreSQL)
-- [ ] Notificações push para lembretes de medicamentos
-- [ ] Implementação real de videochamada na Telemedicina
-- [ ] Dark Mode funcional em todo o app
-- [ ] Publicação na Play Store e App Store (React Native ou PWA)
-
----
-
-## 👨‍💻 Autor
+<div align="center">
 
 Desenvolvido por **Bruno Silva**
 
 [![GitHub](https://img.shields.io/badge/GitHub-BrunoSilva77-181717?style=flat-square&logo=github)](https://github.com/BrunoSilva77)
 
----
+<sub>Feito com 💜 para apoiar pacientes e profissionais de oncologia.</sub>
 
-<div align="center">
-  <sub>Feito com 💜 para ajudar pacientes e profissionais de oncologia.</sub>
 </div>
