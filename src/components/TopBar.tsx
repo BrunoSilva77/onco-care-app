@@ -5,11 +5,10 @@ import './TopBar.css';
 
 interface TopBarProps {
   title: string;
-  hideMenu?: boolean;
   rightElement?: React.ReactNode;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ title, hideMenu, rightElement }) => {
+const TopBar: React.FC<TopBarProps> = ({ title, rightElement }) => {
   const navigate = useNavigate();
 
   return (

@@ -128,7 +128,7 @@ const AssistenteIA: React.FC = () => {
 
   return (
     <div className="page-container" style={{ height: '100vh' }} onClick={() => setMenuOpen(false)}>
-      <TopBar title="MyCare" hideMenu rightElement={dotsButton} />
+      <TopBar title="MyCare" rightElement={dotsButton} />
       
       <div className="chat-container">
         <div className="chat-messages">
