@@ -1,0 +1,14 @@
+[4/25/2026, 23:15:49] === Logging started: 2026/04/25 23:15:49 ===
+[4/25/2026, 23:15:49] Executable: C:\Program Files (x86)\Steam\steamapps\common\Steamworks Shared\_CommonRedist\DotNet\4.0\dotNetFx40_Full_x86_x64.exe v4.0.30319.1
+[4/25/2026, 23:15:49] --- logging level: standard ---
+[4/25/2026, 23:15:49] Successfully bound to the ClusApi.dll
+[4/25/2026, 23:15:49] Error 0x800706d9: Failed to open the current cluster
+[4/25/2026, 23:15:49] Cluster drive map: ''
+[4/25/2026, 23:15:49] Considering drive: 'C:\'...
+[4/25/2026, 23:15:49] Drive 'C:\' has been selected as the largest fixed drive
+[4/25/2026, 23:15:49] Directory 'C:\b34f9d05ba5c9742faa9921c\' has been selected for file extraction
+[4/25/2026, 23:15:49] Extracting files to: C:\b34f9d05ba5c9742faa9921c\
+[4/25/2026, 23:15:54] Extraction took 4.438 seconds
+[4/25/2026, 23:15:54] Executing command line: 'C:\b34f9d05ba5c9742faa9921c\\Setup.exe   /q /norestart /x86 /x64'
+[4/25/2026, 23:15:59] Exiting with result code: 0x0
+[4/25/2026, 23:15:59] === Logging stopped: 2026/04/25 23:15:59 ===

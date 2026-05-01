@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, User, Stethoscope } from 'lucide-react';
 import './Cadastro.css';
-import './Login.css'; // Reusing some inputs and buttons
+import './Login.css';
+
+const TIPOS_CANCER = [
+  'Mama', 'Pulmão', 'Cólon e Reto', 'Próstata', 'Estômago',
+  'Fígado', 'Cervical', 'Esôfago', 'Pâncreas', 'Leucemia',
+  'Linfoma', 'Melanoma', 'Bexiga', 'Rim', 'Tireoide',
+  'Ovário', 'Cérebro', 'Osso', 'Outro',
+];
+
+const FASES_CANCER = [
+  { value: '0', label: 'Estágio 0 — In situ (células anormais, sem invasão)' },
+  { value: '1', label: 'Estágio I — Localizado, pequeno tamanho' },
+  { value: '2', label: 'Estágio II — Maior ou com linfonodos próximos' },
+  { value: '3', label: 'Estágio III — Disseminação regional' },
+  { value: '4', label: 'Estágio IV — Metastático (órgãos distantes)' },
+];
 
 const Cadastro: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<'selecao' | 'paciente' | 'medico'>('selecao');
+  const [tipoCancer, setTipoCancer] = useState('');
+  const [faseCancer, setFaseCancer] = useState('');
 
   const handleBack = () => {
     if (step === 'selecao') {
@@ -68,6 +85,41 @@ const Cadastro: React.FC = () => {
               <label className="input-label">DATA DE NASCIMENTO</label>
               <input type="date" className="glass-input" required />
             </div>
+
+            {/* Tipo de Câncer */}
+            <div className="input-group">
+              <label className="input-label">TIPO DE CÂNCER</label>
+              <select
+                className="glass-input glass-select"
+                value={tipoCancer}
+                onChange={(e) => setTipoCancer(e.target.value)}
+                required
+              >
+                <option value="" disabled>Selecione o tipo de câncer</option>
+                {TIPOS_CANCER.map((tipo) => (
+                  <option key={tipo} value={tipo}>{tipo}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Fase / Estágio */}
+            <div className="input-group">
+              <label className="input-label">ESTÁGIO CLÍNICO</label>
+              <div className="fase-grid">
+                {FASES_CANCER.map((fase) => (
+                  <div
+                    key={fase.value}
+                    className={`fase-card ${faseCancer === fase.value ? 'fase-card--active' : ''}`}
+                    onClick={() => setFaseCancer(fase.value)}
+                  >
+                    <span className="fase-badge">
+                      {fase.value === '0' ? '0' : `${fase.value}`}
+                    </span>
+                    <span className="fase-label">{fase.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </>
         ) : (
           <>
@@ -91,13 +143,17 @@ const Cadastro: React.FC = () => {
           <button type="submit" className="login-button">
             Criar Conta
           </button>
-          
+
           <div className="divider">
             <span>OU</span>
           </div>
 
           <button type="button" className="gov-button" onClick={() => navigate('/home')}>
-            <img src="/assets/images/gov_icon.png" alt="gov.br" className="gov-icon" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="4" fill="white" fillOpacity="0.2"/>
+              <path d="M12 3L4 7.5V12C4 16.1 7.4 19.9 12 21C16.6 19.9 20 16.1 20 12V7.5L12 3Z" fill="white"/>
+              <path d="M10 14.5L7.5 12L8.9 10.6L10 11.7L15.1 6.6L16.5 8L10 14.5Z" fill="#1351b4"/>
+            </svg>
             Cadastrar com gov.br
           </button>
         </div>

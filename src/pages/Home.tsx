@@ -7,29 +7,33 @@ import {
   Info,
   Search,
   UserPlus,
-  Brain,
   Settings,
   User,
   Bell,
   Moon,
   Shield,
-  LogOut
+  LogOut,
+  ClipboardList,
+  CreditCard
 } from 'lucide-react';
 import './Home.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [activeMenu, setActiveMenu] = useState<'home' | 'settings'>('home');
+  const [activeMenu, setActiveMenu] = useState<'home' | 'settings' | 'perfil'>('home');
   return (
     <div className="home-container">
       {/* Header Area */}
       <header className="home-header">
         <div className="header-user-info">
           <div className="user-avatar">
-             <img src="/assets/images/logo.png" alt="Avatar" />
+             <img src="/assets/images/user_avatar.jpg" alt="Avatar" />
           </div>
           <div className="greeting-text">
-            <h2>Olá, Michael</h2>
+            <div className="greeting-name-row">
+              <h2>Olá, Michael</h2>
+              <span className="stage-badge">Estágio III</span>
+            </div>
             <p>Como posso ajudar hoje?</p>
           </div>
         </div>
@@ -39,6 +43,12 @@ const Home: React.FC = () => {
       <section className="circular-menu-wrapper">
         <div className="half-circle">
           <div className={`inner-half-circle spinning-wheel ${activeMenu}`}>
+             <div 
+                className={`wheel-icon pos-perfil ${activeMenu === 'perfil' ? 'active' : ''}`}
+                onClick={() => setActiveMenu('perfil')}
+             >
+               <User size={28} />
+             </div>
              <div 
                 className={`wheel-icon pos-home ${activeMenu === 'home' ? 'active' : ''}`}
                 onClick={() => setActiveMenu('home')}
@@ -111,20 +121,54 @@ const Home: React.FC = () => {
             </>
           )}
 
-          {activeMenu === 'settings' && (
+          {activeMenu === 'perfil' && (
             <>
               <div className="menu-item-wrapper seq-1">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/configuracoes')}>
+                <div className="menu-pill settings-pill" onClick={() => navigate('/meu-perfil')}>
                   <div className="menu-icon settings-icon"><User /></div>
                   <div className="menu-text">
                     <h3>MEU PERFIL</h3>
-                    <p>Editar conta e senha</p>
+                    <p>Editar dados pessoais</p>
                   </div>
                 </div>
               </div>
 
               <div className="menu-item-wrapper seq-2">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/configuracoes')}>
+                <div className="menu-pill settings-pill" onClick={() => navigate('/acompanhamento')}>
+                  <div className="menu-icon settings-icon"><ClipboardList /></div>
+                  <div className="menu-text">
+                    <h3>HISTÓRICO</h3>
+                    <p>Seu acompanhamento</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="menu-item-wrapper seq-3">
+                <div className="menu-pill settings-pill" onClick={() => navigate('/exames')}>
+                  <div className="menu-icon settings-icon"><FileText /></div>
+                  <div className="menu-text">
+                    <h3>EXAMES</h3>
+                    <p>Resultados e consultas</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="menu-item-wrapper seq-4">
+                <div className="menu-pill settings-pill" onClick={() => navigate('/planos')}>
+                  <div className="menu-icon settings-icon"><CreditCard /></div>
+                  <div className="menu-text">
+                    <h3>PLANOS</h3>
+                    <p>Planos OncoCare</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {activeMenu === 'settings' && (
+            <>
+              <div className="menu-item-wrapper seq-1">
+                <div className="menu-pill settings-pill" onClick={() => navigate('/notificacoes')}>
                   <div className="menu-icon settings-icon"><Bell /></div>
                   <div className="menu-text">
                     <h3>NOTIFICAÇÕES</h3>
@@ -133,8 +177,8 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="menu-item-wrapper seq-3">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/configuracoes')}>
+              <div className="menu-item-wrapper seq-2">
+                <div className="menu-pill settings-pill" onClick={() => navigate('/aparencia')}>
                   <div className="menu-icon settings-icon"><Moon /></div>
                   <div className="menu-text">
                     <h3>APARÊNCIA</h3>
@@ -143,8 +187,8 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="menu-item-wrapper seq-4">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/configuracoes')}>
+              <div className="menu-item-wrapper seq-3">
+                <div className="menu-pill settings-pill" onClick={() => navigate('/seguranca')}>
                   <div className="menu-icon settings-icon"><Shield /></div>
                   <div className="menu-text">
                     <h3>SEGURANÇA</h3>
@@ -153,7 +197,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="menu-item-wrapper seq-5">
+              <div className="menu-item-wrapper seq-4">
                 <div className="menu-pill logout-pill" onClick={() => navigate('/login')}>
                   <div className="menu-icon logout-icon"><LogOut /></div>
                   <div className="menu-text">
@@ -184,7 +228,11 @@ const Home: React.FC = () => {
         
         <div className="assistant-button-container">
           <button className="oc-ia-btn" onClick={() => navigate('/assistente')}>
-            <Brain />
+            <img
+              src="/assets/images/mycare_avatar.jpg"
+              alt="MyCare"
+              className="oc-ia-avatar"
+            />
           </button>
         </div>
       </section>

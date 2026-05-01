@@ -1,4 +1,4 @@
-.chat-container {
+﻿.chat-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -32,7 +32,7 @@
 
 .message-user {
   align-self: flex-end;
-  background: #8a63e5;
+  background: var(--color-primary);
   color: #fff;
   border-bottom-right-radius: 4px;
 }
@@ -57,11 +57,11 @@
 }
 
 .chat-input:focus {
-  outline: 2px solid #8a63e5;
+  outline: 2px solid var(--color-primary);
 }
 
 .send-btn {
-  background: #8a63e5;
+  background: var(--color-primary);
   color: #fff;
   border: none;
   width: 44px;
@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(138, 99, 229, 0.3);
+  box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.3);
   transition: transform 0.2s;
 }
 
@@ -79,17 +79,16 @@
   transform: scale(1.05);
 }
 
-/* Ícone da IA na mensagem */
-.message-ai {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.ai-icon {
-  color: #8a63e5;
-  flex-shrink: 0;
-  margin-top: 2px;
+.ai-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  vertical-align: middle;
+  margin-right: 6px;
+  box-shadow: 0 2px 6px rgba(var(--color-primary-rgb), 0.2);
+  display: inline-block;
 }
 
 /* Indicador de digitação (3 bolinhas pulsantes) */
@@ -103,7 +102,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #8a63e5;
+  background: var(--color-primary);
   animation: blink 1.2s infinite;
 }
 
@@ -124,9 +123,9 @@
 }
 
 .suggestion-chip {
-  background: rgba(138, 99, 229, 0.08);
-  border: 1px solid rgba(138, 99, 229, 0.25);
-  color: #8a63e5;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+  color: var(--color-primary);
   border-radius: 20px;
   padding: 6px 14px;
   font-size: 12px;
@@ -137,6 +136,193 @@
 }
 
 .suggestion-chip:hover {
-  background: #8a63e5;
+  background: var(--color-primary);
   color: #fff;
+}
+
+/* ── Botão 3 pontos ── */
+.mycare-dots-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mycare-dots-btn:hover {
+  background: rgba(var(--color-primary-rgb), 0.16);
+}
+
+/* ── Mini dropdown ── */
+.mycare-dots-menu {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  overflow: hidden;
+  z-index: 200;
+  min-width: 160px;
+  animation: fadeInDown 0.15s ease;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mycare-dots-item {
+  width: 100%;
+  padding: 14px 18px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1c1c1e;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.mycare-dots-item:hover {
+  background: rgba(var(--color-primary-rgb), 0.06);
+  color: var(--color-primary);
+}
+
+/* ── Modal overlay ── */
+.mycare-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── Modal card (bottom sheet) ── */
+.mycare-modal {
+  width: 100%;
+  background: #fff;
+  border-radius: 28px 28px 0 0;
+  padding: 28px 24px 36px;
+  position: relative;
+  animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 88%;
+  overflow-y: auto;
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.mycare-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.mycare-modal-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.mycare-modal-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1c1c1e;
+  margin-bottom: 20px;
+}
+
+/* Avatar + texto lado a lado */
+.mycare-modal-avatar-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.mycare-modal-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(var(--color-primary-rgb), 0.25);
+}
+.mycare-modal-avatar-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin-bottom: 6px;
+}
+.mycare-modal-avatar-info p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+}
+
+.mycare-modal-divider {
+  height: 1px;
+  background: rgba(var(--color-primary-rgb), 0.12);
+  margin-bottom: 20px;
+}
+
+.mycare-modal-section {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin-bottom: 8px;
+}
+
+.mycare-modal-text {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* Bullet item */
+.mycare-modal-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.mycare-modal-bullet {
+  min-width: 44px;
+  height: 26px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #a580ff, #5eb8ff);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 0 8px;
+}
+.mycare-modal-item p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
 }

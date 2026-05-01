@@ -1,5 +1,6 @@
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import Configuracoes from './pages/Configuracoes';
@@ -13,28 +14,38 @@ import AssistenteIA from './pages/AssistenteIA';
 import Unidades from './pages/Unidades';
 import Farmacias from './pages/Farmacias';
 import Planos from './pages/Planos';
+import MeuPerfil from './pages/MeuPerfil';
+import Notificacoes from './pages/Notificacoes';
+import Aparencia from './pages/Aparencia';
+import Seguranca from './pages/Seguranca';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/configuracoes" element={<Configuracoes />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/sintomas" element={<Sintomas />} />
-        <Route path="/telemedicina" element={<Telemedicina />} />
-        <Route path="/exames" element={<Exames />} />
-        <Route path="/acompanhamento" element={<Acompanhamento />} />
-        <Route path="/biblioteca" element={<Biblioteca />} />
-        <Route path="/assistente" element={<AssistenteIA />} />
-        <Route path="/unidades" element={<Unidades />} />
-        <Route path="/farmacias" element={<Farmacias />} />
-        <Route path="/planos" element={<Planos />} />
-        {/* Default route redirects to login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/configuracoes" element={<Configuracoes />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/sintomas" element={<Sintomas />} />
+          <Route path="/telemedicina" element={<Telemedicina />} />
+          <Route path="/exames" element={<Exames />} />
+          <Route path="/acompanhamento" element={<Acompanhamento />} />
+          <Route path="/biblioteca" element={<Biblioteca />} />
+          <Route path="/assistente" element={<AssistenteIA />} />
+          <Route path="/unidades" element={<Unidades />} />
+          <Route path="/farmacias" element={<Farmacias />} />
+          <Route path="/planos" element={<Planos />} />
+          <Route path="/meu-perfil" element={<MeuPerfil />} />
+          <Route path="/notificacoes" element={<Notificacoes />} />
+          <Route path="/aparencia" element={<Aparencia />} />
+          <Route path="/seguranca" element={<Seguranca />} />
+          {/* Default route redirects to login */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

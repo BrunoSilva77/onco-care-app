@@ -1,4 +1,4 @@
-.dropdown-container {
+﻿.dropdown-container {
   position: relative;
   display: inline-block;
 }
@@ -49,7 +49,7 @@
 }
 
 .dropdown-item:hover {
-  background: rgba(138, 99, 229, 0.1);
+  background: rgba(var(--color-primary-rgb), 0.1);
 }
 
 .dropdown-item:not(:last-child) {
@@ -59,7 +59,7 @@
 .dropdown-item svg {
   width: 18px;
   height: 18px;
-  color: #8a63e5;
+  color: var(--color-primary);
 }
 
 .item-logout {

@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --color-primary: #8a63e5; /* A soft, vibrant purple */
+  --color-primary: var(--color-primary); /* A soft, vibrant purple */
   --color-secondary: #ff8ca3; /* Soft pink */
   --color-tertiary: #5dc3f6; /* Light blue */
-  --color-bg-light: #f5f2fc; /* Very light purple/white mix */
+  --color-bg-light: #ffffff; /* Pure white background */
   --color-text-main: #1c1c1e; /* Deep near black */
   --color-text-muted: #6b6b70; /* Muted gray */
   --color-white: #ffffff;
   
   --font-family: 'Inter', sans-serif;
   
-  --shadow-soft: 0 4px 20px rgba(138, 99, 229, 0.1);
-  --shadow-medium: 0 8px 30px rgba(138, 99, 229, 0.15);
+  --shadow-soft: 0 4px 20px rgba(var(--color-primary-rgb), 0.1);
+  --shadow-medium: 0 8px 30px rgba(var(--color-primary-rgb), 0.15);
   
   --border-radius-sm: 12px;
   --border-radius-md: 20px;
@@ -44,7 +44,7 @@ body {
   max-width: 430px; /* Typical iPhone Pro Max width */
   height: 100vh;
   max-height: 932px;
-  background-color: var(--color-bg-light);
+  background: linear-gradient(160deg, #ede8ff 0%, #ffffff 50%, #ede8ff 100%);
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
@@ -98,4 +98,134 @@ button {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.page-container { width: 100%%; height: 100%%; background: linear-gradient(180deg, #fcebfa 0%%, #e0cbf3 40%%, #c8def9 100%%); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; position: relative; } 
+.page-container { width: 100%; height: 100%; background: transparent; display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; position: relative; }
+
+/* ═══════════════════════════════════
+   DARK MODE — classe .dark no #root
+   ═══════════════════════════════════ */
+#root.dark {
+  background-color: #0f0f1a;
+  color: #e0e0f0;
+}
+
+/* Backgrounds principais */
+#root.dark .home-container,
+#root.dark .page-container,
+#root.dark .login-container,
+#root.dark .cadastro-container,
+#root.dark .settings-page {
+  background: #0f0f1a !important;
+}
+
+/* TopBar */
+#root.dark .topbar {
+  background: rgba(20, 20, 40, 0.95);
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+#root.dark .topbar-title,
+#root.dark .back-btn { color: #e0e0f0; }
+
+/* Cards e seções */
+#root.dark .config-card,
+#root.dark .scard,
+#root.dark .action-bar {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* Textos */
+#root.dark h1, #root.dark h2, #root.dark h3, #root.dark h4,
+#root.dark .topbar-title,
+#root.dark .greeting-text h2,
+#root.dark .config-text h4,
+#root.dark .srow-text h4,
+#root.dark .menu-text h3,
+#root.dark .section-title {
+  color: #f0f0ff;
+}
+
+#root.dark p,
+#root.dark .greeting-text p,
+#root.dark .config-text p,
+#root.dark .srow-text p,
+#root.dark .menu-text p,
+#root.dark .action-bar span {
+  color: #aaaacc;
+}
+
+/* Inputs */
+#root.dark .glass-input,
+#root.dark .settings-input {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+  color: #e0e0f0;
+}
+#root.dark .glass-input::placeholder,
+#root.dark .settings-input::placeholder { color: #666688; }
+
+/* Pills / menu items */
+#root.dark .menu-pill,
+#root.dark .settings-pill {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+}
+#root.dark .menu-pill:hover,
+#root.dark .settings-pill:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Chat (MyCare) */
+#root.dark .chat-container { background: #0f0f1a; }
+#root.dark .message-ai {
+  background: rgba(255,255,255,0.07);
+  color: #e0e0f0;
+}
+#root.dark .chat-input-area {
+  background: rgba(20,20,40,0.9);
+  border-top-color: rgba(255,255,255,0.08);
+}
+#root.dark .chat-input {
+  background: rgba(255,255,255,0.06);
+  color: #e0e0f0;
+}
+#root.dark .suggestion-chip {
+  background: rgba(var(--color-primary), 0.1);
+  color: #c8b8ff;
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Half circle wheel */
+#root.dark .half-circle { background: rgba(255,255,255,0.05); }
+#root.dark .inner-half-circle { background: rgba(255,255,255,0.08); }
+#root.dark .wheel-icon { background: rgba(255,255,255,0.1); }
+#root.dark .wheel-icon.active { background: rgba(255,255,255,0.2); }
+
+/* Bottom bars */
+#root.dark .action-bar {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Modal MyCare */
+#root.dark .mycare-modal { background: #1a1a2e; }
+#root.dark .mycare-modal-title,
+#root.dark .mycare-modal-section,
+#root.dark .mycare-modal-avatar-info h3 { color: #f0f0ff; }
+#root.dark .mycare-modal-text,
+#root.dark .mycare-modal-item p,
+#root.dark .mycare-modal-avatar-info p { color: #aaaacc; }
+#root.dark .mycare-dots-menu { background: #1a1a2e; }
+#root.dark .mycare-dots-item { color: #e0e0f0; }
+
+/* Settings shared */
+#root.dark .settings-input-label { color: var(--color-primary); }
+#root.dark .fase-card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+#root.dark .fase-label { color: #c8c8e8; }
+#root.dark .profile-card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+#root.dark .profile-card h3 { color: #f0f0ff; }
+#root.dark .profile-card p  { color: #aaaacc; }

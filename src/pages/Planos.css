@@ -1,4 +1,4 @@
-.planos-content {
+﻿.planos-content {
   padding: 0 24px 30px;
   display: flex;
   flex-direction: column;
@@ -19,8 +19,8 @@
 }
 
 .plano-premium {
-  background: linear-gradient(135deg, rgba(138, 99, 229, 0.1), rgba(93, 195, 246, 0.1));
-  border-color: rgba(138, 99, 229, 0.3);
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1), rgba(93, 195, 246, 0.1));
+  border-color: rgba(var(--color-primary-rgb), 0.3);
 }
 
 .plano-header h3 {
@@ -33,7 +33,7 @@
 .plano-price {
   font-size: 24px;
   font-weight: 800;
-  color: #8a63e5;
+  color: var(--color-primary);
 }
 
 .plano-price span {

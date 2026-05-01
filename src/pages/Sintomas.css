@@ -1,4 +1,4 @@
-.sintomas-content {
+﻿.sintomas-content {
   padding: 0 24px 30px;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
 
 .pain-scale input[type="range"] {
   width: 100%;
-  accent-color: #8a63e5;
+  accent-color: var(--color-primary);
 }
 
 .pain-labels {
@@ -71,7 +71,7 @@
 }
 
 .textarea-input:focus {
-  outline: 2px solid #8a63e5;
+  outline: 2px solid var(--color-primary);
 }
 
 .save-btn {

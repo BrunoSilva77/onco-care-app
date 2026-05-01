@@ -1,14 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
-import DropdownMenu from './DropdownMenu';
 import './TopBar.css';
 
 interface TopBarProps {
   title: string;
+  hideMenu?: boolean;
+  rightElement?: React.ReactNode;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ title }) => {
+const TopBar: React.FC<TopBarProps> = ({ title, hideMenu, rightElement }) => {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +20,7 @@ const TopBar: React.FC<TopBarProps> = ({ title }) => {
         </button>
         <h2 className="topbar-title">{title}</h2>
       </div>
-      <DropdownMenu />
+      {rightElement && rightElement}
     </header>
   );
 };

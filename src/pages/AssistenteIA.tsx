@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TopBar from '../components/TopBar';
-import { Send, Sparkles } from 'lucide-react';
+import { Send, MoreVertical, X } from 'lucide-react';
 import './AssistenteIA.css';
 
 type Message = { role: 'ai' | 'user'; text: string };
@@ -57,7 +57,7 @@ const RESPOSTAS: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['oi', 'olá', 'ola', 'bom dia', 'boa tarde', 'boa noite', 'opa'],
-    response: 'Olá! Sou o OC IA, seu assistente virtual de oncologia. Posso responder dúvidas sobre seu tratamento, sintomas, medicamentos, exames e muito mais. Como posso te ajudar hoje?'
+    response: 'Olá! Sou a MyCare, sua assistente virtual de oncologia. Posso responder dúvidas sobre seu tratamento, sintomas, medicamentos, exames e muito mais. Como posso te ajudar hoje?'
   },
 ];
 
@@ -84,9 +84,11 @@ function getResponse(text: string): string {
 const AssistenteIA: React.FC = () => {
   const [msg, setMsg] = useState('');
   const [chat, setChat] = useState<Message[]>([
-    { role: 'ai', text: 'Olá! Sou o OC IA, seu assistente de oncologia. Posso responder dúvidas sobre sintomas, tratamentos, medicamentos e muito mais. Como posso te ajudar hoje?' }
+    { role: 'ai', text: 'Olá! Sou a MyCare, sua assistente de oncologia. Posso responder dúvidas sobre sintomas, tratamentos, medicamentos e muito mais. Como posso te ajudar hoje? 💜' }
   ]);
   const [isTyping, setIsTyping] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -106,15 +108,39 @@ const AssistenteIA: React.FC = () => {
     }, 1200);
   };
 
+  const dotsButton = (
+    <div style={{ position: 'relative' }} onClick={e => e.stopPropagation()}>
+      <button className="mycare-dots-btn" onClick={() => setMenuOpen(v => !v)}>
+        <MoreVertical size={20} />
+      </button>
+      {menuOpen && (
+        <div className="mycare-dots-menu">
+          <button
+            className="mycare-dots-item"
+            onClick={() => { setShowAbout(true); setMenuOpen(false); }}
+          >
+            Sobre a MyCare
+          </button>
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <div className="page-container" style={{ height: '100vh' }}>
-      <TopBar title="Assistente OC IA" />
+    <div className="page-container" style={{ height: '100vh' }} onClick={() => setMenuOpen(false)}>
+      <TopBar title="MyCare" hideMenu rightElement={dotsButton} />
       
       <div className="chat-container">
         <div className="chat-messages">
           {chat.map((c, i) => (
             <div key={i} className={`message ${c.role === 'ai' ? 'message-ai' : 'message-user'}`}>
-              {c.role === 'ai' && <Sparkles size={14} className="ai-icon" />}
+              {c.role === 'ai' && (
+                <img
+                  src="/assets/images/mycare_avatar.jpg"
+                  alt="MyCare"
+                  className="ai-avatar"
+                />
+              )}
               <span>{c.text}</span>
             </div>
           ))}
@@ -125,7 +151,6 @@ const AssistenteIA: React.FC = () => {
           )}
           <div ref={messagesEndRef} />
         </div>
-
         {/* Sugestões rápidas */}
         <div className="suggestions-row">
           {SUGESTOES.map((s, i) => (
@@ -134,6 +159,7 @@ const AssistenteIA: React.FC = () => {
             </button>
           ))}
         </div>
+
 
         <div className="chat-input-area">
           <input 
@@ -149,6 +175,57 @@ const AssistenteIA: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {showAbout && (
+        <div className="mycare-modal-overlay" onClick={() => setShowAbout(false)}>
+          <div className="mycare-modal" onClick={e => e.stopPropagation()}>
+            <button className="mycare-modal-close" onClick={() => setShowAbout(false)}>
+              <X size={20} />
+            </button>
+
+            <p className="mycare-modal-tag">ASSISTENTE VIRTUAL</p>
+            <h2 className="mycare-modal-title">MyCare</h2>
+
+            <div className="mycare-modal-avatar-wrap">
+              <img src="/assets/images/mycare_avatar.jpg" alt="MyCare" className="mycare-modal-avatar" />
+              <div className="mycare-modal-avatar-info">
+                <h3>O Ícone</h3>
+                <p>
+                  O avatar não foi escolhido ao acaso — é uma estilização de
+                  <strong> Myrela</strong>, pessoa especial homenageada pela equipe
+                  OncoCare, trazendo humanização imediata ao ambiente digital.
+                </p>
+              </div>
+            </div>
+
+            <div className="mycare-modal-divider" />
+
+            <h3 className="mycare-modal-section">Sobre o Nome "MyCare"</h3>
+            <p className="mycare-modal-text">
+              A escolha do nome foi o &quot;xeque-mate&quot; para fechar o conceito da homenagem:
+            </p>
+
+            <div className="mycare-modal-item">
+              <span className="mycare-modal-bullet">My</span>
+              <p>
+                Funciona em dois níveis. Primeiro, é a sílaba inicial de <strong>Myrela</strong>,
+                mantendo a essência dela em cada interação. Segundo, em inglês significa
+                &quot;Meu&quot; — dando ao paciente sensação de suporte personalizado:
+                <em> &quot;Este é o MEU cuidado&quot;</em>.
+              </p>
+            </div>
+
+            <div className="mycare-modal-item">
+              <span className="mycare-modal-bullet">Care</span>
+              <p>
+                Conecta-se diretamente ao nome do site (<strong>OncoCare</strong>),
+                criando um branding consistente onde o produto e o serviço se
+                fundem perfeitamente.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

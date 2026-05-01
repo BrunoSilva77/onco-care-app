@@ -1,4 +1,4 @@
-.config-content {
+﻿.config-content {
   padding: 0 24px 30px;
   display: flex;
   flex-direction: column;
@@ -52,8 +52,8 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: rgba(138, 99, 229, 0.1);
-  color: #8a63e5;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,7 +117,7 @@
 }
 
 .toggle-input:checked + .toggle-slider {
-  background-color: #8a63e5;
+  background-color: var(--color-primary);
 }
 
 .toggle-input:checked + .toggle-slider:before {
