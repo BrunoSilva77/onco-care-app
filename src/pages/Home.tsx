@@ -13,7 +13,6 @@ import {
   Moon,
   Shield,
   LogOut,
-  ClipboardList,
   CreditCard,
   Pill,
   Activity,
