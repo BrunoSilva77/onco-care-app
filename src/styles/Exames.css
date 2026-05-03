@@ -1,0 +1,166 @@
+.exames-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exam-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  border-left: 6px solid var(--color-primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.exam-date {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exam-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 4px;
+}
+
+.exam-local {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Agendamento Flow */
+.btn-novo-agendamento {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-novo-agendamento:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.agendamento-form-container {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.agendamento-form-container h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+}
+
+.agendamento-form-container p {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: #666;
+}
+
+.agendamento-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+}
+
+.form-group select,
+.form-group input {
+  background: #f4f7f6;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: var(--color-primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn-cancelar {
+  flex: 1;
+  background: transparent;
+  color: #888;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-confirmar {
+  flex: 2;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-confirmar.sucesso {
+  background: #4caf50;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { BookOpen } from 'lucide-react';
-import './Biblioteca.css';
+import '../styles/Biblioteca.css';
 
 const Biblioteca: React.FC = () => {
   const articles = [

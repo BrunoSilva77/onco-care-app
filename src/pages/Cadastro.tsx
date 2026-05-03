@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, User, Stethoscope } from 'lucide-react';
-import './Cadastro.css';
-import './Login.css';
+import '../styles/Cadastro.css';
+import '../styles/Login.css';
 
 const TIPOS_CANCER = [
   'Mama', 'Pulmão', 'Cólon e Reto', 'Próstata', 'Estômago',

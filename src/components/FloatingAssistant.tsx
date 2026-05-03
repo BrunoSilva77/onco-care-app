@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Brain } from 'lucide-react';
-import './FloatingAssistant.css';
+import '../styles/FloatingAssistant.css';
 
 const FloatingAssistant: React.FC = () => {
   const navigate = useNavigate();

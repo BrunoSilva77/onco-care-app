@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import { CheckCircle2, Shield, ArrowUpCircle, Zap } from 'lucide-react';
-import './Planos.css';
+import '../styles/Planos.css';
 
 const Planos: React.FC = () => {
   const navigate = useNavigate();

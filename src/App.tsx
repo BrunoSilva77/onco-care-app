@@ -21,6 +21,10 @@ import MeuPerfil from './pages/MeuPerfil';
 import Notificacoes from './pages/Notificacoes';
 import Aparencia from './pages/Aparencia';
 import Seguranca from './pages/Seguranca';
+import Medicamentos from './pages/Medicamentos';
+import Documentos from './pages/Documentos';
+import Diario from './pages/Diario';
+import Comunidade from './pages/Comunidade';
 
 function App() {
   return (
@@ -47,6 +51,10 @@ function App() {
           <Route path="/notificacoes" element={<Notificacoes />} />
           <Route path="/aparencia" element={<Aparencia />} />
           <Route path="/seguranca" element={<Seguranca />} />
+          <Route path="/medicamentos" element={<Medicamentos />} />
+          <Route path="/documentos" element={<Documentos />} />
+          <Route path="/diario" element={<Diario />} />
+          <Route path="/comunidade" element={<Comunidade />} />
           {/* Default route redirects to login */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>

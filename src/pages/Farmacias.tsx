@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { Search, Percent, Store } from 'lucide-react';
-import './Farmacias.css';
+import '../styles/Farmacias.css';
 
 const Farmacias: React.FC = () => {
   const farmacias = [

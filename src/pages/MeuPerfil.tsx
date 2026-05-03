@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, User, Mail, Phone, Calendar, ChevronRight, Camera } from 'lucide-react';
-import './SettingsShared.css';
+import '../styles/SettingsShared.css';
 
 const MeuPerfil: React.FC = () => {
   const navigate = useNavigate();

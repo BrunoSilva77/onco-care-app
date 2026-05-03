@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, Home, Settings } from 'lucide-react';
-import './DropdownMenu.css';
+import '../styles/DropdownMenu.css';
 
 const DropdownMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

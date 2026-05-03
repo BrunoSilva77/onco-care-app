@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import { Video, MessageCircle } from 'lucide-react';
-import './Telemedicina.css';
+import '../styles/Telemedicina.css';
 
 const Telemedicina: React.FC = () => {
   const navigate = useNavigate();

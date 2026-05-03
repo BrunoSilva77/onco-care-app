@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Bell, MessageSquare, Calendar, Activity, Pill } from 'lucide-react';
-import './SettingsShared.css';
+import '../styles/SettingsShared.css';
 
 const Notificacoes: React.FC = () => {
   const navigate = useNavigate();

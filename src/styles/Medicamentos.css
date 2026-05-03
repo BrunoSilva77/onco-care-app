@@ -1,0 +1,158 @@
+.medicamentos-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Progress Card */
+.med-progress-card {
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.9), #a580ff);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.med-progress-info h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.med-progress-info p {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Circular Chart */
+.med-progress-circle {
+  width: 70px;
+  height: 70px;
+}
+
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.percentage {
+  fill: #fff;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+/* List */
+.med-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.med-item {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.med-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.med-info {
+  flex: 1;
+}
+
+.med-info h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 2px;
+  transition: color 0.3s ease;
+}
+
+.med-info p {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 6px;
+}
+
+.med-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #888;
+  font-weight: 600;
+}
+
+.med-check .check-icon {
+  transition: all 0.3s ease;
+}
+
+.med-check .unchecked {
+  color: #ddd;
+}
+
+.med-check .checked {
+  color: #4caf50;
+  transform: scale(1.1);
+}
+
+/* Taken State */
+.med-tomado {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: none;
+}
+
+.med-tomado .med-icon-container {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.med-tomado .med-info h3 {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.med-tomado .med-info p, 
+.med-tomado .med-time {
+  opacity: 0.6;
+}

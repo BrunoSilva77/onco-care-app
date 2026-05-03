@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { CheckCircle2, Star, Zap, Crown } from 'lucide-react';
-import './PlanosDisponiveis.css';
+import '../styles/PlanosDisponiveis.css';
 
 const PlanosDisponiveis: React.FC = () => {
   return (

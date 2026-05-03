@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Moon, Sun, Type, Palette } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import type { ThemeType } from '../context/ThemeContext';
-import './SettingsShared.css';
+import '../styles/SettingsShared.css';
 
 const THEMES: { id: ThemeType; label: string; dot: string }[] = [
   { id: 'roxo', label: 'Roxo', dot: 'linear-gradient(135deg, #a580ff, #5eb8ff)' },

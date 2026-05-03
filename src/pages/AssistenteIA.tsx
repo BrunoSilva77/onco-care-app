@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TopBar from '../components/TopBar';
 import { Send, MoreVertical, X } from 'lucide-react';
-import './AssistenteIA.css';
+import '../styles/AssistenteIA.css';
 
 type Message = { role: 'ai' | 'user'; text: string };
 

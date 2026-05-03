@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Shield, Fingerprint, Lock, Eye, EyeOff, Smartphone, AlertTriangle } from 'lucide-react';
-import './SettingsShared.css';
+import '../styles/SettingsShared.css';
 
 const Seguranca: React.FC = () => {
   const navigate = useNavigate();

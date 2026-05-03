@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
-import './TopBar.css';
+import '../styles/TopBar.css';
 
 interface TopBarProps {
   title: string;

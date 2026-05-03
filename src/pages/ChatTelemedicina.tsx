@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft, Send, Phone, Video, MoreVertical } from 'lucide-react';
-import './ChatTelemedicina.css';
+import '../styles/ChatTelemedicina.css';
 
 interface Message {
   id: string;

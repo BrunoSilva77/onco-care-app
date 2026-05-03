@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TopBar from '../components/TopBar';
-import './Sintomas.css';
+import '../styles/Sintomas.css';
 
 const Sintomas: React.FC = () => {
   const [mood, setMood] = useState<number | null>(null);

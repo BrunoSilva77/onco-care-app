@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import '../styles/Login.css';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -77,6 +77,10 @@ const Login: React.FC = () => {
             Entrar com gov.br
           </button>
         </form>
+      </div>
+
+      <div className="login-footer">
+        <p>Desenvolvido por <strong>Bruno Silva</strong></p>
       </div>
     </div>
   );

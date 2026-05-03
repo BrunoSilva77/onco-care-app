@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { Search, MapPin } from 'lucide-react';
-import './Unidades.css';
+import '../styles/Unidades.css';
 
 const Unidades: React.FC = () => {
   const hospitais = [

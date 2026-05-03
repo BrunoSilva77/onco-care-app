@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Mic, MicOff, Video, VideoOff, PhoneOff, MessageCircle } from 'lucide-react';
-import './ChamadaVideoTelemedicina.css';
+import '../styles/ChamadaVideoTelemedicina.css';
 
 const ChamadaVideoTelemedicina: React.FC = () => {
   const location = useLocation();

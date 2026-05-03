@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import { MapPin } from 'lucide-react';
-import './Acompanhamento.css';
+import '../styles/Acompanhamento.css';
 
 const Acompanhamento: React.FC = () => {
   const history = [

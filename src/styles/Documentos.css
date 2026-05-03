@@ -1,0 +1,288 @@
+.documentos-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Tabs */
+.docs-tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.doc-tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 14px;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.doc-tab.active {
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Carteirinha Digital */
+.digital-card {
+  background: linear-gradient(135deg, #1f1c2c, #928DAB);
+  border-radius: 20px;
+  padding: 24px;
+  color: #fff;
+  box-shadow: 0 15px 35px rgba(31, 28, 44, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.digital-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card-logo {
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.card-type {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.card-name {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.card-number {
+  font-size: 16px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.card-footer-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.card-validity, .card-stage {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-qr {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-placeholder {
+  color: #000;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.card-helper-text {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* Exames Cofre */
+.exames-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.docs-search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f4f7f6;
+  border-radius: 16px;
+  padding: 0 16px;
+  gap: 10px;
+}
+
+.docs-search-bar input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-icon {
+  color: #888;
+}
+
+.btn-add-doc {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-add-doc:hover {
+  transform: scale(1.05);
+}
+
+.docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.doc-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc-info {
+  flex: 1;
+}
+
+.doc-info h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+
+.doc-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.doc-download-btn {
+  background: transparent;
+  border: none;
+  color: #a580ff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.doc-download-btn:hover {
+  background: rgba(165, 128, 255, 0.1);
+}
+
+.docs-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #aaa;
+  text-align: center;
+  gap: 12px;
+}
+
+.docs-empty-state p {
+  font-size: 14px;
+  margin: 0;
+}

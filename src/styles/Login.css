@@ -1,4 +1,4 @@
-﻿.login-container {
+.login-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -197,8 +197,24 @@
 
 .gov-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(19, 81, 180, 0.5);
-  background: #0c3e90;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(19, 81, 180, 0.4);
+}
+
+.login-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.login-footer p {
+  color: rgba(5, 4, 4, 0.7);
+  font-size: 12px;
+  margin: 0;
+}
+
+.login-footer strong {
+  color: #000000;
+  font-weight: 700;
 }
 
 .gov-icon {

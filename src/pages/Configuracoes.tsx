@@ -5,7 +5,7 @@ import {
   User, Bell, Moon, Sun, Lock, Shield, 
   HelpCircle, ChevronRight, LogOut, FileText 
 } from 'lucide-react';
-import './Configuracoes.css';
+import '../styles/Configuracoes.css';
 
 const Configuracoes: React.FC = () => {
   const navigate = useNavigate();
