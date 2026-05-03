@@ -1,4 +1,4 @@
-﻿.home-container {
+.home-container {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -251,6 +251,11 @@
   /* Let clicks pass through empty spaces to the half-circle */
 }
 
+.menu-items-container.perfil {
+  justify-content: center;
+  gap: 24px;
+}
+
 /* Dotted connection line simulation */
 .menu-item-wrapper {
   position: relative;
@@ -331,6 +336,23 @@
   width: 129px;
   left: -129px;
   transform: rotate(55deg);
+  transform-origin: right center;
+}
+
+.menu-item-wrapper.seq-perfil-1 { animation-delay: 0.1s; }
+.menu-item-wrapper.seq-perfil-2 { animation-delay: 0.2s; }
+
+.menu-item-wrapper.seq-perfil-1::before {
+  width: 81px;
+  left: -81px;
+  transform: rotate(-23deg);
+  transform-origin: right center;
+}
+
+.menu-item-wrapper.seq-perfil-2::before {
+  width: 81px;
+  left: -81px;
+  transform: rotate(23deg);
   transform-origin: right center;
 }
 

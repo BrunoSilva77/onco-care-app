@@ -1,4 +1,4 @@
-﻿.telemedicina-content {
+.telemedicina-content {
   padding: 0 24px 30px;
   display: flex;
   flex-direction: column;
@@ -65,6 +65,30 @@
   color: #c62828;
 }
 
+.doctor-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-btn {
+  background: #5eb8ff;
+  color: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(94, 184, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.chat-btn:hover {
+  transform: scale(1.05);
+}
+
 .call-btn {
   background: #ff8ca3;
   color: #fff;
@@ -75,4 +99,11 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(255, 140, 163, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.call-btn:hover {
+  transform: scale(1.05);
 }

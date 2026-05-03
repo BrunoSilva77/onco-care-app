@@ -5,9 +5,9 @@ import './Unidades.css';
 
 const Unidades: React.FC = () => {
   const hospitais = [
-    { nome: 'Hospital Sírio-Libanês', endereco: 'Bela Vista, São Paulo - SP', dist: '2.5 km' },
-    { nome: 'Hospital Israelita Albert Einstein', endereco: 'Morumbi, São Paulo - SP', dist: '6.8 km' },
-    { nome: 'Beneficência Portuguesa', endereco: 'Paraíso, São Paulo - SP', dist: '3.1 km' }
+    { nome: 'Santa Casa de Misericórdia', endereco: 'Centro, Araçatuba - SP', dist: '1.2 km' },
+    { nome: 'Hospital Unimed Araçatuba', endereco: 'Vila Mendonça, Araçatuba - SP', dist: '2.5 km' },
+    { nome: 'Hospital da Mulher', endereco: 'Jardim Sumaré, Araçatuba - SP', dist: '3.8 km' }
   ];
 
   return (

@@ -40,7 +40,7 @@ const Cadastro: React.FC = () => {
           <User />
         </div>
         <div>
-          <h3>Sou Paciente</h3>
+          <h3 style={{ textAlign: 'center' }}>Sou Paciente</h3>
           <p>Quero acompanhar meu tratamento e agendar consultas.</p>
         </div>
       </div>
@@ -50,7 +50,7 @@ const Cadastro: React.FC = () => {
           <Stethoscope />
         </div>
         <div>
-          <h3>Sou Médico</h3>
+          <h3 style={{ textAlign: 'center' }}>Sou Profissional</h3>
           <p>Quero gerenciar meus pacientes e realizar telemedicina.</p>
         </div>
       </div>
@@ -62,7 +62,7 @@ const Cadastro: React.FC = () => {
     return (
       <form className="cadastro-form" onSubmit={(e) => { e.preventDefault(); navigate('/home'); }}>
         <h3 className="form-title">
-          Cadastro de {isPaciente ? 'Paciente' : 'Médico'}
+          Cadastro de {isPaciente ? 'Paciente' : 'Profissional'}
         </h3>
 
         <div className="input-group">
@@ -150,9 +150,9 @@ const Cadastro: React.FC = () => {
 
           <button type="button" className="gov-button" onClick={() => navigate('/home')}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="24" height="24" rx="4" fill="white" fillOpacity="0.2"/>
-              <path d="M12 3L4 7.5V12C4 16.1 7.4 19.9 12 21C16.6 19.9 20 16.1 20 12V7.5L12 3Z" fill="white"/>
-              <path d="M10 14.5L7.5 12L8.9 10.6L10 11.7L15.1 6.6L16.5 8L10 14.5Z" fill="#1351b4"/>
+              <rect width="24" height="24" rx="4" fill="white" fillOpacity="0.2" />
+              <path d="M12 3L4 7.5V12C4 16.1 7.4 19.9 12 21C16.6 19.9 20 16.1 20 12V7.5L12 3Z" fill="white" />
+              <path d="M10 14.5L7.5 12L8.9 10.6L10 11.7L15.1 6.6L16.5 8L10 14.5Z" fill="#1351b4" />
             </svg>
             Cadastrar com gov.br
           </button>

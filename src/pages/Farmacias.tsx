@@ -5,9 +5,9 @@ import './Farmacias.css';
 
 const Farmacias: React.FC = () => {
   const farmacias = [
-    { nome: 'Droga Raia', endereco: 'Av. Paulista, 1234', desconto: 'Até 30% Off' },
-    { nome: 'Drogasil', endereco: 'Rua Augusta, 500', desconto: 'Até 25% Off' },
-    { nome: 'Pague Menos', endereco: 'Av. Brigadeiro, 800', desconto: 'Até 40% Off' }
+    { nome: 'Droga Raia', endereco: 'Av. Brasília, 2121 - Araçatuba', desconto: 'Até 30% Off' },
+    { nome: 'Drogasil', endereco: 'Rua Luiz Pereira Barreto, 105 - Araçatuba', desconto: 'Até 25% Off' },
+    { nome: 'Pague Menos', endereco: 'Av. dos Araçás, 1500 - Araçatuba', desconto: 'Até 40% Off' }
   ];
 
   return (

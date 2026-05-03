@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Stethoscope, 
-  FileText, 
-  ClipboardCheck, 
+import {
+  Stethoscope,
+  FileText,
+  ClipboardCheck,
   Info,
   Search,
   UserPlus,
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       <header className="home-header">
         <div className="header-user-info">
           <div className="user-avatar">
-             <img src="/assets/images/user_avatar.jpg" alt="Avatar" />
+            <img src="/assets/images/logo.png" alt="Logo" />
           </div>
           <div className="greeting-text">
             <div className="greeting-name-row">
@@ -43,29 +43,29 @@ const Home: React.FC = () => {
       <section className="circular-menu-wrapper">
         <div className="half-circle">
           <div className={`inner-half-circle spinning-wheel ${activeMenu}`}>
-             <div 
-                className={`wheel-icon pos-perfil ${activeMenu === 'perfil' ? 'active' : ''}`}
-                onClick={() => setActiveMenu('perfil')}
-             >
-               <User size={28} />
-             </div>
-             <div 
-                className={`wheel-icon pos-home ${activeMenu === 'home' ? 'active' : ''}`}
-                onClick={() => setActiveMenu('home')}
-             >
-               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-               </svg>
-             </div>
-             <div 
-                className={`wheel-icon pos-settings ${activeMenu === 'settings' ? 'active' : ''}`}
-                onClick={() => setActiveMenu('settings')}
-             >
-               <Settings size={28} />
-             </div>
+            <div
+              className={`wheel-icon pos-perfil ${activeMenu === 'perfil' ? 'active' : ''}`}
+              onClick={() => setActiveMenu('perfil')}
+            >
+              <User size={28} />
+            </div>
+            <div
+              className={`wheel-icon pos-home ${activeMenu === 'home' ? 'active' : ''}`}
+              onClick={() => setActiveMenu('home')}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </div>
+            <div
+              className={`wheel-icon pos-settings ${activeMenu === 'settings' ? 'active' : ''}`}
+              onClick={() => setActiveMenu('settings')}
+            >
+              <Settings size={28} />
+            </div>
           </div>
         </div>
-        
+
         <div className={`menu-items-container ${activeMenu}`}>
           {activeMenu === 'home' && (
             <>
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
 
           {activeMenu === 'perfil' && (
             <>
-              <div className="menu-item-wrapper seq-1">
+              <div className="menu-item-wrapper seq-perfil-1">
                 <div className="menu-pill settings-pill" onClick={() => navigate('/meu-perfil')}>
                   <div className="menu-icon settings-icon"><User /></div>
                   <div className="menu-text">
@@ -133,32 +133,12 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="menu-item-wrapper seq-2">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/acompanhamento')}>
-                  <div className="menu-icon settings-icon"><ClipboardList /></div>
-                  <div className="menu-text">
-                    <h3>HISTÓRICO</h3>
-                    <p>Seu acompanhamento</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="menu-item-wrapper seq-3">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/exames')}>
-                  <div className="menu-icon settings-icon"><FileText /></div>
-                  <div className="menu-text">
-                    <h3>EXAMES</h3>
-                    <p>Resultados e consultas</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="menu-item-wrapper seq-4">
+              <div className="menu-item-wrapper seq-perfil-2">
                 <div className="menu-pill settings-pill" onClick={() => navigate('/planos')}>
                   <div className="menu-icon settings-icon"><CreditCard /></div>
                   <div className="menu-text">
-                    <h3>PLANOS</h3>
-                    <p>Planos OncoCare</p>
+                    <h3>MEU PLANO</h3>
+                    <p>Meu Plano OncoCare</p>
                   </div>
                 </div>
               </div>
@@ -221,11 +201,11 @@ const Home: React.FC = () => {
           <Search />
           <span>Farmácias parceiras</span>
         </div>
-        <div className="action-bar" onClick={() => navigate('/planos')}>
+        <div className="action-bar" onClick={() => navigate('/planos-disponiveis')}>
           <Search />
           <span>Planos OncoCare</span>
         </div>
-        
+
         <div className="assistant-button-container">
           <button className="oc-ia-btn" onClick={() => navigate('/assistente')}>
             <img

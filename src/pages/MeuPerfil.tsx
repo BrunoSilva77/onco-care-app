@@ -5,7 +5,7 @@ import './SettingsShared.css';
 
 const MeuPerfil: React.FC = () => {
   const navigate = useNavigate();
-  const [nome, setNome] = useState('Michael');
+  const [nome, setNome] = useState('Michael Cuccione');
   const [email, setEmail] = useState('michael@oncocare.com.br');
   const [telefone, setTelefone] = useState('(11) 99999-0000');
   const [nascimento, setNascimento] = useState('1985-06-20');

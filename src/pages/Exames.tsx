@@ -5,9 +5,9 @@ import './Exames.css';
 
 const Exames: React.FC = () => {
   const exames = [
-    { date: '15 de Maio, 14:00', title: 'Consulta Oncológica', local: 'Hospital Sírio-Libanês' },
-    { date: '20 de Maio, 09:30', title: 'Tomografia Computadorizada', local: 'Laboratório Fleury' },
-    { date: '02 de Junho, 10:00', title: 'Sessão de Quimioterapia', local: 'Clínica OncoCare Central' }
+    { date: '15 de Maio, 14:00', title: 'Consulta Oncológica', local: 'Clínica Oncológica, Araçatuba - SP' },
+    { date: '20 de Maio, 09:30', title: 'Tomografia Computadorizada', local: 'Laboratório São Paulo, Araçatuba - SP' },
+    { date: '02 de Junho, 10:00', title: 'Sessão de Quimioterapia', local: 'Hospital Unimed, Araçatuba - SP' }
   ];
 
   return (

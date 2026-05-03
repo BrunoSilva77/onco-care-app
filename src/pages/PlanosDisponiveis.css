@@ -1,0 +1,179 @@
+.planos-disponiveis-content {
+  padding: 0 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pd-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 30px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pd-premium {
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.08), rgba(93, 195, 246, 0.08));
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+  box-shadow: 0 15px 35px rgba(var(--color-primary-rgb), 0.15);
+  padding-top: 40px;
+}
+
+.premium-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #a580ff, #5eb8ff);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  padding: 6px;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.pd-header h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #000;
+  margin: 0;
+}
+
+.premium-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.premium-icon {
+  color: #f59e0b;
+}
+
+.pd-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-align: right;
+}
+
+.pd-price span {
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  display: block;
+}
+
+.pd-description {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.pd-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.feature-icon {
+  color: #888;
+  flex-shrink: 0;
+}
+
+.feature-icon-premium {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.pd-action-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  border: none;
+}
+
+.pd-current-btn {
+  background: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pd-upgrade-btn {
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.pd-upgrade-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Exclusive Plan */
+.pd-exclusive {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 140, 0, 0.08));
+  border: 1px solid rgba(255, 165, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.1);
+}
+
+.exclusive-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exclusive-icon {
+  color: #ff8c00;
+}
+
+.feature-icon-exclusive {
+  color: #ff8c00;
+  flex-shrink: 0;
+}
+
+.pd-upgrade-exclusive-btn {
+  background: linear-gradient(135deg, #ff8c00, #ffd700);
+  color: #000;
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+}
+
+.pd-upgrade-exclusive-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 140, 0, 0.3);
+}

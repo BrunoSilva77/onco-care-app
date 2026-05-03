@@ -1,12 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TopBar from '../components/TopBar';
-import { Video } from 'lucide-react';
+import { Video, MessageCircle } from 'lucide-react';
 import './Telemedicina.css';
 
 const Telemedicina: React.FC = () => {
+  const navigate = useNavigate();
   const doctors = [
     { name: 'Dr. Roberto Alves', spec: 'Oncologista Clínico', online: true, initial: 'RA' },
     { name: 'Dra. Carla Mendes', spec: 'Psico-oncologista', online: true, initial: 'CM' },
+    { name: 'Enf. Juliana Costa', spec: 'Enfermeira Oncológica', online: true, initial: 'JC' },
     { name: 'Dr. Fernando Silva', spec: 'Nutricionista', online: false, initial: 'FS' }
   ];
 
@@ -26,9 +29,14 @@ const Telemedicina: React.FC = () => {
               </span>
             </div>
             {doc.online && (
-              <button className="call-btn" onClick={() => alert(`Iniciando chamada com ${doc.name}...`)}>
-                <Video size={20} />
-              </button>
+              <div className="doctor-actions">
+                <button className="chat-btn" onClick={() => navigate('/telemedicina/chat', { state: { doctor: doc } })}>
+                  <MessageCircle size={20} />
+                </button>
+                <button className="call-btn" onClick={() => navigate('/telemedicina/video', { state: { doctor: doc } })}>
+                  <Video size={20} />
+                </button>
+              </div>
             )}
           </div>
         ))}
