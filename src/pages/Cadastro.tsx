@@ -124,10 +124,6 @@ const Cadastro: React.FC = () => {
         ) : (
           <>
             <div className="input-group">
-              <label className="input-label">CRM</label>
-              <input type="text" className="glass-input" placeholder="000000-UF" required />
-            </div>
-            <div className="input-group">
               <label className="input-label">ESPECIALIDADE</label>
               <input type="text" className="glass-input" placeholder="Ex: Oncologista Clínico" required />
             </div>

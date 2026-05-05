@@ -155,11 +155,11 @@ const Home: React.FC = () => {
               </div>
 
               <div className="menu-item-wrapper seq-5">
-                <div className="menu-pill" onClick={() => navigate('/diario')}>
-                  <div className="menu-icon"><Activity /></div>
+                <div className="menu-pill" onClick={() => navigate('/acompanhamento')}>
+                  <div className="menu-icon"><ClipboardCheck /></div>
                   <div className="menu-text">
-                    <h3>DIÁRIO</h3>
-                    <p>Bem-estar e Humor</p>
+                    <h3>ACOMPANHAMENTO</h3>
+                    <p>Histórico atualizado</p>
                   </div>
                 </div>
               </div>
@@ -189,11 +189,11 @@ const Home: React.FC = () => {
               </div>
 
               <div className="menu-item-wrapper seq-3">
-                <div className="menu-pill settings-pill" onClick={() => navigate('/acompanhamento')}>
-                  <div className="menu-icon settings-icon"><ClipboardCheck /></div>
+                <div className="menu-pill settings-pill" onClick={() => navigate('/diario')}>
+                  <div className="menu-icon settings-icon"><Activity /></div>
                   <div className="menu-text">
-                    <h3>ACOMPANHAMENTO</h3>
-                    <p>Histórico atualizado</p>
+                    <h3>DIÁRIO</h3>
+                    <p>Bem-estar e Humor</p>
                   </div>
                 </div>
               </div>

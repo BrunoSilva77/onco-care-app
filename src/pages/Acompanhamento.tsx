@@ -5,9 +5,9 @@ import '../styles/Acompanhamento.css';
 
 const Acompanhamento: React.FC = () => {
   const history = [
-    { date: '10 de Maio, 2026', title: 'Exame de Sangue', local: 'Santa Casa de Misericórdia, Araçatuba - SP', desc: 'Hemograma completo realizado. Resultados dentro da normalidade esperada para a fase do tratamento.' },
-    { date: '01 de Maio, 2026', title: 'Sessão de Quimio', local: 'Hospital Unimed Araçatuba - SP', desc: 'Ciclo 2 concluído sem reações adversas severas. Paciente reportou fadiga moderada.' },
-    { date: '20 de Abril, 2026', title: 'Consulta Inicial', local: 'Clínica Oncológica, Araçatuba - SP', desc: 'Definição do protocolo de tratamento e agendamento das primeiras sessões.' }
+    { date: '10 de Maio, 2026', title: 'Exame de Sangue', local: 'Laboratório Central, São Paulo - SP', desc: 'Hemograma completo realizado. Resultados dentro da normalidade esperada para a fase do tratamento.' },
+    { date: '01 de Maio, 2026', title: 'Primeira Sessão de Quimioterapia', local: 'Santa Casa da Misericórdia, Araçatuba - SP', desc: 'Ciclo 1 concluído sem reações adversas severas. Paciente reportou fadiga moderada.' },
+    { date: '20 de Abril, 2026', title: 'Consulta Inicial', local: 'Clínica Oncologia, Campo Grande - MS', desc: 'Definição do protocolo de tratamento e agendamento das primeiras sessões.' }
   ];
 
   return (
