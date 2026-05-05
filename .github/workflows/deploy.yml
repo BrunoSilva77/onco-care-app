@@ -43,5 +43,3 @@ jobs:
           local-dir: ./dist/
           server-dir: /htdocs/
           dangerous-clean-slate: true
-          exclude: |
-            **/.htaccess
