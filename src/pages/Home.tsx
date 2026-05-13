@@ -16,9 +16,6 @@ import {
   CreditCard,
   Pill,
   Activity,
-  Droplets,
-  Users,
-  Heart,
   MessageCircle
 } from 'lucide-react';
 import '../styles/Home.css';
@@ -88,9 +85,6 @@ const Home: React.FC = () => {
     startY.current = null;
   };
 
-  const handleBeberAgua = () => {
-    // Logic for water intake would go here
-  };
 
   return (
     <div className="home-container">

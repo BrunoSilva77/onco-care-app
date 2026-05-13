@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import TopBar from '../components/TopBar';
-import { MapPin, Calendar, Activity, Syringe, FileText, Search } from 'lucide-react';
+import { MapPin, Activity, Syringe, FileText, Search } from 'lucide-react';
 import '../styles/Acompanhamento.css';
 
 interface HistoryItem {
