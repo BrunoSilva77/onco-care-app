@@ -4,11 +4,12 @@ import { ChevronLeft } from 'lucide-react';
 import '../styles/TopBar.css';
 
 interface TopBarProps {
-  title: string;
+  title?: string;
+  titleElement?: React.ReactNode;
   rightElement?: React.ReactNode;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ title, rightElement }) => {
+const TopBar: React.FC<TopBarProps> = ({ title, titleElement, rightElement }) => {
   const navigate = useNavigate();
 
   return (
@@ -17,7 +18,7 @@ const TopBar: React.FC<TopBarProps> = ({ title, rightElement }) => {
         <button className="back-btn" onClick={() => navigate(-1)}>
           <ChevronLeft />
         </button>
-        <h2 className="topbar-title">{title}</h2>
+        {titleElement ? titleElement : <h2 className="topbar-title">{title}</h2>}
       </div>
       {rightElement && rightElement}
     </header>
