@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Stethoscope,
@@ -18,21 +18,80 @@ import {
   Activity,
   Droplets,
   Users,
-  Heart
+  Heart,
+  MessageCircle
 } from 'lucide-react';
 import '../styles/Home.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState<'home' | 'settings' | 'perfil'>('home');
-  const [coposAgua, setCoposAgua] = useState(3);
-  const totalCopos = 8;
 
-  const handleBeberAgua = () => {
-    if (coposAgua < totalCopos) {
-      setCoposAgua(prev => prev + 1);
+  const menus: ('perfil' | 'home' | 'settings')[] = ['perfil', 'home', 'settings'];
+  const isScrolling = useRef(false);
+  const startY = useRef<number | null>(null);
+
+  const handleNextMenu = () => {
+    setActiveMenu(prev => {
+      const idx = menus.indexOf(prev);
+      return idx < menus.length - 1 ? menus[idx + 1] : prev;
+    });
+  };
+
+  const handlePrevMenu = () => {
+    setActiveMenu(prev => {
+      const idx = menus.indexOf(prev);
+      return idx > 0 ? menus[idx - 1] : prev;
+    });
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (isScrolling.current) return;
+    isScrolling.current = true;
+    
+    if (e.deltaY > 0) {
+      handleNextMenu();
+    } else if (e.deltaY < 0) {
+      handlePrevMenu();
+    }
+
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 500);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    startY.current = e.clientY;
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (isScrolling.current || startY.current === null) return;
+    
+    const deltaY = e.clientY - startY.current;
+    
+    if (Math.abs(deltaY) > 40) {
+      isScrolling.current = true;
+      if (deltaY < 0) {
+        handleNextMenu();
+      } else {
+        handlePrevMenu();
+      }
+      
+      startY.current = null;
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 500);
     }
   };
+
+  const handlePointerUp = () => {
+    startY.current = null;
+  };
+
+  const handleBeberAgua = () => {
+    // Logic for water intake would go here
+  };
+
   return (
     <div className="home-container">
       {/* Header Area */}
@@ -51,42 +110,17 @@ const Home: React.FC = () => {
         </div>
       </header>
 
-      {/* Daily Goals / Metas */}
-      <section className="home-goals">
-        <div className="goal-card">
-          <div className="goal-info">
-            <div className="goal-header">
-              <Droplets size={16} color="#48dbfb" />
-              <span>Hidratação</span>
-            </div>
-            <h4>{coposAgua} / {totalCopos} copos</h4>
-          </div>
-          <button
-            className="btn-add-water"
-            onClick={handleBeberAgua}
-            disabled={coposAgua >= totalCopos}
-          >
-            +
-          </button>
-        </div>
-
-        <div className="goal-card" onClick={() => navigate('/comunidade')}>
-          <div className="goal-info">
-            <div className="goal-header">
-              <Heart size={16} color="#ff6b6b" />
-              <span>Rede de Apoio</span>
-            </div>
-            <h4>Apoie Alguém</h4>
-          </div>
-          <div className="btn-add-water" style={{ background: 'rgba(255, 107, 107, 0.1)', color: '#ff6b6b' }}>
-            <Users size={16} />
-          </div>
-        </div>
-      </section>
-
       {/* Circular Menu Area */}
       <section className="circular-menu-wrapper">
-        <div className="half-circle">
+        <div 
+          className="half-circle"
+          onWheel={handleWheel}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+          style={{ touchAction: 'none' }} // Prevent page scrolling when interacting with wheel
+        >
           <div className={`inner-half-circle spinning-wheel ${activeMenu}`}>
             <div
               className={`wheel-icon pos-perfil ${activeMenu === 'perfil' ? 'active' : ''}`}
@@ -101,6 +135,13 @@ const Home: React.FC = () => {
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
               </svg>
+            </div>
+            <div
+              className={`wheel-icon pos-chat`}
+              onClick={() => navigate('/comunidade')}
+              title="Apoie Alguém"
+            >
+              <MessageCircle size={28} />
             </div>
             <div
               className={`wheel-icon pos-settings ${activeMenu === 'settings' ? 'active' : ''}`}

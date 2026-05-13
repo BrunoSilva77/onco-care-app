@@ -2,65 +2,177 @@
   padding: 0 24px 30px;
 }
 
+/* Filters Section */
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.chips-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.chips-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(140, 140, 189, 0.15);
+  color: #666;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.dropdowns-container {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-input-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 8px 12px;
+  border-radius: 12px;
+  gap: 8px;
+  border: 1px solid rgba(140, 140, 189, 0.15);
+}
+
+.filter-input-group svg {
+  color: #888;
+}
+
+.filter-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 13px;
+  color: #333;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Timeline Container */
+.timeline-container {
+  position: relative;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: #888;
+}
+
+.empty-state p {
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.empty-state button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Premium Timeline */
 .timeline {
   position: relative;
-  padding-left: 30px;
+  padding-left: 35px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 11px;
-  top: 0;
+  left: 14px;
+  top: 15px;
   bottom: 0;
   width: 2px;
-  background: rgba(var(--color-primary-rgb), 0.3);
+  background: rgba(140, 140, 189, 0.2);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .timeline-dot {
   position: absolute;
-  left: -35px;
-  top: 0;
-  width: 12px;
-  height: 12px;
+  left: -21px; /* 35 padding - 14 line = 21 diff */
+  top: 24px; /* Center with the first text lines */
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--color-primary);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+  transform: translate(-50%, -50%);
 }
 
-.timeline-content {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
+.timeline-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s;
 }
 
+.timeline-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Type Colors */
+.type-consulta .timeline-dot { background: #5dc3f6; }
+.type-sessao .timeline-dot { background: #ff6b6b; }
+.type-exame .timeline-dot { background: #ffd93d; color: #333; }
+.type-outro .timeline-dot { background: #a580ff; }
+
 .timeline-date {
-  font-size: 12px;
-  color: var(--color-primary);
+  font-size: 11px;
+  color: #a580ff;
   font-weight: 800;
   margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .timeline-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  color: #000;
+  color: #222;
   margin: 0 0 6px;
-}
-
-.timeline-desc {
-  font-size: 13px;
-  color: #555;
-  margin: 0;
-  line-height: 1.4;
 }
 
 .timeline-location {
@@ -69,10 +181,26 @@
   gap: 6px;
   font-size: 11px;
   color: #888;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
 .timeline-location svg {
-  color: var(--color-primary);
+  color: #a580ff;
+}
+
+.timeline-desc {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

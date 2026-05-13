@@ -86,82 +86,6 @@
   margin: 0;
 }
 
-.home-goals {
-  display: flex;
-  gap: 16px;
-  padding: 0 24px;
-  margin-top: -10px;
-  margin-bottom: 30px;
-  z-index: 20;
-  position: relative;
-}
-
-.goal-card {
-  flex: 1;
-  background: #fff;
-  border-radius: 20px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.goal-card:hover {
-  transform: translateY(-2px);
-}
-
-.goal-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.goal-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #888;
-  text-transform: uppercase;
-}
-
-.goal-info h4 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 800;
-  color: #222;
-}
-
-.btn-add-water {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: rgba(var(--color-primary-rgb), 0.1);
-  color: var(--color-primary);
-  border: none;
-  font-size: 20px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-add-water:not(:disabled):hover {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.btn-add-water:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -216,7 +140,7 @@
 
 .half-circle {
   position: absolute;
-  left: -60px;
+  left: -80px;
   top: 50%;
   transform: translateY(-50%);
   width: 180px;
@@ -251,11 +175,11 @@
 }
 
 .spinning-wheel.settings {
-  transform: rotate(-45deg);
+  transform: rotate(-70deg);
 }
 
 .spinning-wheel.perfil {
-  transform: rotate(45deg);
+  transform: rotate(35deg);
 }
 
 .wheel-icon {
@@ -283,41 +207,49 @@
 
 /* Position on the right edge (0 degrees) */
 .pos-home {
-  left: 206px;
+  left: 216px;
   top: 116px;
 }
 
-/* Position on the bottom-right edge (+45 degrees) */
-.pos-settings {
-  left: 174px;
-  top: 194px;
+.pos-chat {
+  left: 198px;
+  top: 173px;
 }
 
-/* Position on the top-right edge (-45 degrees) */
+/* Position on the bottom-right edge (+70 degrees) */
+.pos-settings {
+  left: 150px;
+  top: 210px;
+}
+
+/* Position on the top-right edge (-35 degrees) */
 .pos-perfil {
-  left: 174px;
-  top: 38px;
+  left: 198px;
+  top: 59px;
 }
 
 /* Counter-rotate: home mode */
 .spinning-wheel.home .pos-home,
 .spinning-wheel.home .pos-settings,
-.spinning-wheel.home .pos-perfil {
+.spinning-wheel.home .pos-perfil,
+.spinning-wheel.home .pos-chat {
   transform: rotate(0deg);
 }
 
 /* Counter-rotate: settings mode */
 .spinning-wheel.settings .pos-home,
 .spinning-wheel.settings .pos-settings,
-.spinning-wheel.settings .pos-perfil {
-  transform: rotate(45deg);
+.spinning-wheel.settings .pos-perfil,
+.spinning-wheel.settings .pos-chat {
+  transform: rotate(70deg);
 }
 
 /* Counter-rotate: perfil mode */
 .spinning-wheel.perfil .pos-home,
 .spinning-wheel.perfil .pos-settings,
-.spinning-wheel.perfil .pos-perfil {
-  transform: rotate(-45deg);
+.spinning-wheel.perfil .pos-perfil,
+.spinning-wheel.perfil .pos-chat {
+  transform: rotate(-35deg);
 }
 
 /* Menu Items Container */
@@ -325,7 +257,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding-left: 170px;
+  padding-left: 130px;
   /* Offset to the right to leave space for lines */
   display: flex;
   flex-direction: column;
@@ -388,36 +320,37 @@
 /* Specific offsets to create a curve effect pointing to the center of the Home icon */
 
 .menu-item-wrapper.seq-1::before {
-  width: 129px;
-  left: -129px;
-  transform: rotate(-55deg);
+  width: 190px;
+  left: -190px;
+  transform: rotate(-68deg);
   transform-origin: right center;
 }
 
 .menu-item-wrapper.seq-2::before {
-  width: 84px;
-  left: -84px;
-  transform: rotate(-28deg);
+  width: 113px;
+  left: -113px;
+  transform: rotate(-52deg);
   transform-origin: right center;
 }
 
 .menu-item-wrapper.seq-3::before {
-  width: 74px;
-  left: -74px;
+  width: 70px;
+  left: -70px;
   transform: rotate(0deg);
+  transform-origin: right center;
 }
 
 .menu-item-wrapper.seq-4::before {
-  width: 84px;
-  left: -84px;
-  transform: rotate(28deg);
+  width: 113px;
+  left: -113px;
+  transform: rotate(52deg);
   transform-origin: right center;
 }
 
 .menu-item-wrapper.seq-5::before {
-  width: 129px;
-  left: -129px;
-  transform: rotate(55deg);
+  width: 190px;
+  left: -190px;
+  transform: rotate(68deg);
   transform-origin: right center;
 }
 

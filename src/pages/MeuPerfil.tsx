@@ -30,12 +30,8 @@ const MeuPerfil: React.FC = () => {
       <div className="settings-body">
         {/* Avatar */}
         <div className="avatar-section">
-          <div className="avatar-circle" style={{ background: 'none', padding: 0, overflow: 'hidden' }}>
-            <img
-              src="/assets/images/user_avatar.jpg"
-              alt="Foto de perfil"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', borderRadius: '50%' }}
-            />
+          <div className="avatar-circle" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f5' }}>
+            <User size={48} color="#aaa" strokeWidth={1.5} />
           </div>
           <button className="avatar-edit-btn">
             <Camera size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} />

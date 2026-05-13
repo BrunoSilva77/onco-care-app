@@ -19,12 +19,18 @@
   line-height: 1.4;
 }
 
-/* Create Post */
-.create-post-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+/* Create Post - Floating */
+.create-post-card.floating {
+  position: sticky;
+  bottom: 20px;
+  margin: 0 20px 20px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 24px;
 }
 
 .create-post-input-wrapper {
@@ -92,11 +98,27 @@
   box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.3);
 }
 
+.btn-postar.icon-only {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-postar.icon-only svg {
+  margin-left: -2px; /* optical centering for the send icon arrow */
+}
+
 /* Feed */
 .feed-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-bottom: 160px; /* Extra padding to scroll past the floating card */
 }
 
 .post-card {

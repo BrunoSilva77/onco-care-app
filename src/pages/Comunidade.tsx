@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopBar from '../components/TopBar';
 import { Heart, MessageCircle, Send, Share2 } from 'lucide-react';
 import '../styles/Comunidade.css';
@@ -14,39 +14,85 @@ interface Post {
   likedByMe: boolean;
 }
 
+const defaultPosts: Post[] = [
+  {
+    id: 1,
+    author: 'Maria Silva',
+    avatar: 'M',
+    time: 'Há 2 horas',
+    content: 'Hoje completei minha última sessão de quimioterapia! Foi uma jornada muito difícil, mas com o apoio da família e dos médicos, eu consegui. Nunca desistam, guerreiros! 💪✨',
+    likes: 124,
+    comments: 15,
+    likedByMe: false
+  },
+  {
+    id: 2,
+    author: 'João Pedro',
+    avatar: 'J',
+    time: 'Há 5 horas',
+    content: 'Alguém tem alguma dica para aliviar a náusea nos primeiros dias após o ciclo? Tenho tomado o remédio prescrito, mas queria saber se existem alimentos específicos que ajudam.',
+    likes: 45,
+    comments: 28,
+    likedByMe: true
+  },
+  {
+    id: 3,
+    author: 'Ana Clara',
+    avatar: 'A',
+    time: 'Ontem',
+    content: 'Minha primeira tomografia de controle veio limpa! Estou muito grata e emocionada. Queria compartilhar com vocês porque essa comunidade me deu muita força quando eu recebi o diagnóstico.',
+    likes: 342,
+    comments: 56,
+    likedByMe: false
+  },
+  {
+    id: 4,
+    author: 'Roberto Almeida',
+    avatar: 'R',
+    time: 'Ontem',
+    content: 'Hoje faz um ano que terminei meu tratamento. Só passando para lembrar a todos que dias melhores virão. Continuem firmes!',
+    likes: 512,
+    comments: 42,
+    likedByMe: true
+  },
+  {
+    id: 5,
+    author: 'Camila Costa',
+    avatar: 'C',
+    time: 'Há 2 dias',
+    content: 'Gente, descobri um chá de gengibre com hortelã que está salvando meu estômago essa semana. Recomendo muito conversar com o nutricionista de vocês sobre isso!',
+    likes: 89,
+    comments: 12,
+    likedByMe: false
+  },
+  {
+    id: 6,
+    author: 'Fernando Souza',
+    avatar: 'F',
+    time: 'Há 3 dias',
+    content: 'Iniciando a radioterapia amanhã. Um pouco nervoso, mas confiante de que é mais um passo rumo à cura. Mandem energias positivas! 🙏',
+    likes: 210,
+    comments: 88,
+    likedByMe: false
+  }
+];
+
 const Comunidade: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([
-    {
-      id: 1,
-      author: 'Maria Silva',
-      avatar: 'M',
-      time: 'Há 2 horas',
-      content: 'Hoje completei minha última sessão de quimioterapia! Foi uma jornada muito difícil, mas com o apoio da família e dos médicos, eu consegui. Nunca desistam, guerreiros! 💪✨',
-      likes: 124,
-      comments: 15,
-      likedByMe: false
-    },
-    {
-      id: 2,
-      author: 'João Pedro',
-      avatar: 'J',
-      time: 'Há 5 horas',
-      content: 'Alguém tem alguma dica para aliviar a náusea nos primeiros dias após o ciclo? Tenho tomado o remédio prescrito, mas queria saber se existem alimentos específicos que ajudam.',
-      likes: 45,
-      comments: 28,
-      likedByMe: true
-    },
-    {
-      id: 3,
-      author: 'Ana Clara',
-      avatar: 'A',
-      time: 'Ontem',
-      content: 'Minha primeira tomografia de controle veio limpa! Estou muito grata e emocionada. Queria compartilhar com vocês porque essa comunidade me deu muita força quando eu recebi o diagnóstico.',
-      likes: 342,
-      comments: 56,
-      likedByMe: false
+  const [posts, setPosts] = useState<Post[]>(() => {
+    const saved = localStorage.getItem('@oncocare:comunidade_posts_v2');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return defaultPosts;
+      }
     }
-  ]);
+    return defaultPosts;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@oncocare:comunidade_posts_v2', JSON.stringify(posts));
+  }, [posts]);
 
   const [newPost, setNewPost] = useState('');
 
@@ -91,28 +137,6 @@ const Comunidade: React.FC = () => {
           <p>Compartilhe experiências, tire dúvidas e encontre força na nossa comunidade.</p>
         </div>
 
-        {/* Create Post */}
-        <div className="create-post-card">
-          <div className="create-post-input-wrapper">
-            <div className="avatar-small">M</div>
-            <textarea 
-              placeholder="Compartilhe algo com a comunidade..."
-              value={newPost}
-              onChange={(e) => setNewPost(e.target.value)}
-              rows={2}
-            ></textarea>
-          </div>
-          <div className="create-post-actions">
-            <button 
-              className={`btn-postar ${newPost.trim() ? 'active' : ''}`}
-              onClick={handlePostar}
-              disabled={!newPost.trim()}
-            >
-              <Send size={16} /> Publicar
-            </button>
-          </div>
-        </div>
-
         {/* Feed */}
         <div className="feed-list">
           {posts.map(post => (
@@ -147,6 +171,27 @@ const Comunidade: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Create Post (Floating Bottom) */}
+      <div className="create-post-card floating">
+        <div className="create-post-input-wrapper" style={{ alignItems: 'center' }}>
+          <div className="avatar-small">M</div>
+          <textarea 
+            placeholder="Compartilhe algo..."
+            value={newPost}
+            onChange={(e) => setNewPost(e.target.value)}
+            rows={1}
+          ></textarea>
+          <button 
+            className={`btn-postar icon-only ${newPost.trim() ? 'active' : ''}`}
+            onClick={handlePostar}
+            disabled={!newPost.trim()}
+          >
+            <Send size={18} />
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 };
